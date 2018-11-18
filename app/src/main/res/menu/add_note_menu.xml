@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_save_note"
+        android:icon="@drawable/ic_ok_white"
+        android:title="@string/save_note_text"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_more"
+        android:icon="@drawable/ic_more_vert_black"
+        android:title=""
+        app:showAsAction="always">
+        <menu>
+            <item
+                android:id="@+id/action_discard_note"
+                android:icon="@drawable/ic_delete_black"
+                android:title="@string/discard_note_text"
+                app:showAsAction="never" />
+
+            <item
+                android:id="@+id/action_send"
+                android:icon="@drawable/ic_send_black"
+                android:title="@string/send_text"
+                app:showAsAction="never" />
+
+            <item
+                android:id="@+id/action_lock"
+                android:icon="@drawable/ic_lock_black"
+                android:title="@string/lock_text"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/action_unlock"
+                android:icon="@drawable/ic_unlock_black"
+                android:title="@string/unlock_text"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/action_copy"
+                android:icon="@drawable/ic_copy_clipboard_black"
+                android:title="@string/copy_text"
+                app:showAsAction="never" />
+        </menu>
+    </item>
+</menu>

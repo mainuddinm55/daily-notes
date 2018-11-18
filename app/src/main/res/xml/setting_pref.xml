@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="General">
+        <ListPreference
+            android:defaultValue="1"
+            android:dialogTitle="@string/default_sort_by"
+            android:entries="@array/sort_by_array"
+            android:entryValues="@array/sort_by_array"
+            android:key="@string/key_sort_by_pref"
+            android:summary="@string/summary_sort_by"
+            android:title="@string/default_sort_by" />
+        <ListPreference
+            android:defaultValue="1"
+            android:dialogTitle="@string/view_text"
+            android:entries="@array/view_array"
+            android:entryValues="@array/view_array"
+            android:key="@string/key_view_pref"
+            android:summary="@string/summary_view"
+            android:title="@string/view_text" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/security_text">
+        <Preference
+            android:selectable="true"
+            android:key="@string/master_pin_key"
+            android:summary="@string/master_pin_summary"
+            android:title="@string/master_pin_text" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/about_text">
+        <Preference
+            android:selectable="false"
+            android:summary="@string/summary_about" />
+
+        <Preference
+            android:summary="@string/app_version"
+            android:title="@string/title_version" />
+
+        <Preference
+            android:key="@string/key_send_feedback"
+            android:summary="@string/summary_support"
+            android:title="@string/title_send_feedback" />
+    </PreferenceCategory>
+</PreferenceScreen>

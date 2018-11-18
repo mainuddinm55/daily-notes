@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="sort_by_array">
+        <item name="sort_title" type="string">Note Title</item>
+        <item name="sort_create_date" type="string">Create Date</item>
+    </array>
+    <array name="view_array">
+        <item name="list_view" type="string">List View</item>
+        <item name="grid_view" type="string">Grid View</item>
+    </array>
+    <array name="theme_array">
+        <item name="dark_theme" type="string">Dark Theme</item>
+        <item name="light_theme" type="string">Light Theme</item>
+    </array>
+    <array name="mdcolor_400">
+        <item name="red_400" type="color">#FAF0E6</item>
+        <item name="pink_400" type="color">#FFE4C4</item>
+        <item name="purple_400" type="color">#e7ded3</item>
+        <item name="deep_purple_400" type="color">#FAEBD7</item>
+        <item name="indigo_400" type="color">#dac8b1</item>
+        <item name="blue_400" type="color">#FFDEAD</item>
+        <item name="light_blue_400" type="color">#FFEBCD</item>
+        <item name="cyan_400" type="color">#FFEFD5</item>
+        <item name="teal_400" type="color">#FFE4B5</item>
+        <item name="green_400" type="color">#F5DEB3</item>
+        <item name="light_green_400" type="color">#FDF5E6</item>
+        <item name="lime_400" type="color">#FFFFF0</item>
+        <item name="yellow_400" type="color">#FFFFE0</item>
+        <item name="orange_400" type="color">#F5F5DC</item>
+        <item name="deep_orange_400" type="color">#FAFAD2</item>
+        <item name="brown_400" type="color">#E0FFFF</item>
+        <item name="grey_400" type="color">#caeded</item>
+        <item name="blue_grey_400" type="color">#c6e2c3</item>
+    </array>
+    <array name="mdcolor_500">
+        <item name="red_500" type="color">#e51c23</item>
+        <item name="pink_500" type="color">#e91e63</item>
+        <item name="purple_500" type="color">#9c27b0</item>
+        <item name="deep_purple_500" type="color">#673ab7</item>
+        <item name="indigo_500" type="color">#3f51b5</item>
+        <item name="blue_500" type="color">#5677fc</item>
+        <item name="light_blue_500" type="color">#03a9f4</item>
+        <item name="cyan_500" type="color">#00bcd4</item>
+        <item name="teal_500" type="color">#009688</item>
+        <item name="green_500" type="color">#259b24</item>
+        <item name="light_green_500" type="color">#8bc34a</item>
+        <item name="lime_500" type="color">#cddc39</item>
+        <item name="yellow_500" type="color">#ffeb3b</item>
+        <item name="orange_500" type="color">#ff9800</item>
+        <item name="deep_orange_500" type="color">#ff5722</item>
+        <item name="brown_500" type="color">#795548</item>
+        <item name="grey_500" type="color">#9e9e9e</item>
+        <item name="blue_grey_500" type="color">#607d8b</item>
+    </array>
+</resources>
