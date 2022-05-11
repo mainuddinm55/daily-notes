@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/divider"
+            android:layout_width="5dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/note_create_time_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/note_time_demo"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/note_title_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:padding="5dp"
+            android:text="@string/notes_title_text"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/note_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingStart="10dp"
+            android:text="@string/notes_title_text"
+            android:textColor="#D0000000"
+            android:textSize="16sp"
+            android:paddingLeft="10dp" />
+
+
+        <ImageView
+            android:id="@+id/lock_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:contentDescription="@null"
+            android:padding="5dp"
+            android:src="@drawable/ic_lock_black"
+            android:visibility="gone" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

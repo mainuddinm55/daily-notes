@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="2dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardElevation="16dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/divider"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/random_color"
+            tools:background="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/note_title_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@id/lock_image_view"
+            android:layout_toLeftOf="@id/lock_image_view"
+            android:layout_toEndOf="@id/divider"
+            android:layout_toRightOf="@id/divider"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:paddingStart="20dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="5dp"
+            android:text="@string/notes_title_text"
+            android:textColor="@android:color/black"
+            android:textSize="28sp" />
+
+        <TextView
+            android:id="@+id/note_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/note_title_text_view"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@id/lock_image_view"
+            android:layout_toLeftOf="@id/lock_image_view"
+            android:layout_toEndOf="@id/divider"
+            android:layout_toRightOf="@id/divider"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="2"
+            android:paddingStart="30dp"
+            android:paddingLeft="30dp"
+            android:text="@string/notes_title_text"
+            android:textColor="#D0000000"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/lock_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_toStartOf="@id/note_create_time_text_view"
+            android:layout_toLeftOf="@id/note_create_time_text_view"
+            android:contentDescription="@null"
+            android:padding="5dp"
+            android:src="@drawable/ic_lock_black"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/note_create_time_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:gravity="center_vertical"
+            android:padding="5dp"
+            android:text="@string/note_time_demo"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

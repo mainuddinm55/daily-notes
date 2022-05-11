@@ -1,0 +1,3326 @@
+Index: app/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><resources>\n    <string name=\"app_name\">Daily Notes</string>\n    <string name=\"notes_title_text\">Notes Title</string>\n    <string name=\"note_time_demo\">3:30 PM</string>\n    <string name=\"sample_date\">17 Nov, 2018 10:35 AM</string>\n    <string name=\"editing_note_text\">Editing note</string>\n    <string name=\"save_note_text\">Save</string>\n    <string name=\"discard_note_text\">Discard</string>\n    <string name=\"send_text\">Send</string>\n    <string name=\"lock_text\">Lock</string>\n    <string name=\"copy_text\">Copy to Clipboard</string>\n    <string name=\"master_pin\">New master pin</string>\n    <string name=\"re_master_pin\">Re-inter master pin</string>\n    <string name=\"old_pin\">Old master pin</string>\n    <string name=\"unlock_text\">Unlock</string>\n    <string name=\"enter_pin\">Enter pin</string>\n    <string name=\"search_text\">Search</string>\n    <string name=\"sort_by_text\">Sort by</string>\n    <string name=\"view_text\">View</string>\n    <string name=\"settings_text\">Settings</string>\n    <string name=\"theme_text\">Theme</string>\n    <string name=\"create_note_text\">Create Note</string>\n    <string name=\"default_sort_by\">Sort by</string>\n    <string name=\"key_sort_by_pref\">key_sort_by_pref</string>\n    <string name=\"summary_sort_by\">Set default sort by</string>\n    <string name=\"summary_view\">Set default view</string>\n    <string name=\"key_view_pref\">key_view_pref</string>\n    <string name=\"key_theme_key\">key_theme_key</string>\n    <string name=\"summary_theme\">Set default theme</string>\n    <string name=\"security_text\">Security</string>\n    <string name=\"about_text\">About</string>\n    <string name=\"summary_about\">Summary About</string>\n    <string name=\"app_version\">1.0</string>\n    <string name=\"title_version\">Version</string>\n    <string name=\"key_send_feedback\">key_send_feedback</string>\n    <string name=\"title_send_feedback\">Feedback</string>\n    <string name=\"summary_support\">Got any query? and give feedback to help us</string>\n    <string name=\"master_pin_text\">Master pin</string>\n    <string name=\"master_pin_summary\">Set, reset or clear your master pin</string>\n    <string name=\"master_pin_key\">master_pin_key</string>\n    <string name=\"change\">Change</string>\n    <string name=\"clear_pin\">Clear master pin</string>\n    <string name=\"share_text\">Share</string>\n    <string name=\"like_text\">Like apps</string>\n    <string name=\"more_apps\">More apps</string>\n</resources>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values/strings.xml b/app/src/main/res/values/strings.xml
+--- a/app/src/main/res/values/strings.xml	(revision 61dc1546f0081bf150173f1093c429ea908c399c)
++++ b/app/src/main/res/values/strings.xml	(date 1556192816000)
+@@ -1,5 +1,5 @@
+ <resources>
+-    <string name="app_name">Daily Notes</string>
++    <string name="app_name">One Note</string>
+     <string name="notes_title_text">Notes Title</string>
+     <string name="note_time_demo">3:30 PM</string>
+     <string name="sample_date">17 Nov, 2018 10:35 AM</string>
+@@ -43,4 +43,17 @@
+     <string name="share_text">Share</string>
+     <string name="like_text">Like apps</string>
+     <string name="more_apps">More apps</string>
++
++    <string name="admob_app_id">ca-app-pub-5955711392214204~7905543740</string>
++    <string name="banner_unit_id">ca-app-pub-5955711392214204/3477190057</string>
++    <string name="interstitial_unit_id">ca-app-pub-5955711392214204/7330828673</string>
++    <string name="interstitial_video_unit_id">ca-app-pub-3940256099942544/8691691433</string>
++    <string name="reward_video_unit_id">ca-app-pub-5955711392214204/3588870691</string>
++    <string name="native_advanced_unit_id">ca-app-pub-3940256099942544/2247696110</string>
++    <string name="native_advanced_video_unit_id">ca-app-pub-3940256099942544/1044960115</string>
++    <string name="edit">Edit</string>
++    <string name="delete">Delete</string>
++    <string name="note_title">Note Title</string>
++    <string name="type_notes_here">Type notes here</string>
++
+ </resources>
+Index: app/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>apply plugin: 'com.android.application'\n\nandroid {\n    compileSdkVersion 28\n    defaultConfig {\n        applicationId \"com.kcirque.dailynotes\"\n        minSdkVersion 16\n        targetSdkVersion 28\n        versionCode 1\n        versionName \"1.0\"\n        testInstrumentationRunner \"android.support.test.runner.AndroidJUnitRunner\"\n    }\n    buildTypes {\n        release {\n            minifyEnabled false\n            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'\n        }\n    }\n}\n\ndependencies {\n    def room_version = \"1.1.1\"\n    def lifecycle_version = \"1.1.1\"\n\n    implementation fileTree(dir: 'libs', include: ['*.jar'])\n    implementation 'com.android.support:appcompat-v7:28.0.0'\n    implementation 'com.android.support.constraint:constraint-layout:1.1.3'\n    implementation 'com.android.support:design:28.0.0'\n    implementation 'com.android.support:cardview-v7:28.0.0'\n    //architecture component\n    implementation \"android.arch.persistence.room:runtime:$room_version\"\n    annotationProcessor \"android.arch.persistence.room:compiler:$room_version\"\n    implementation \"android.arch.persistence.room:rxjava2:$room_version\"\n\n    //RxJava with RxAndroid\n    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'\n    implementation 'io.reactivex.rxjava2:rxjava:2.2.3'\n\n    // ViewModel and LiveData\n    implementation \"android.arch.lifecycle:extensions:$lifecycle_version\"\n    //material edittext\n    implementation 'com.rengwuxian.materialedittext:library:2.1.4'\n\n    implementation 'com.karumi:dexter:4.2.0'\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/build.gradle b/app/build.gradle
+--- a/app/build.gradle	(revision 61dc1546f0081bf150173f1093c429ea908c399c)
++++ b/app/build.gradle	(date 1652282830620)
+@@ -1,14 +1,15 @@
+ apply plugin: 'com.android.application'
+ 
+ android {
+-    compileSdkVersion 28
++    compileSdkVersion 32
+     defaultConfig {
+         applicationId "com.kcirque.dailynotes"
+         minSdkVersion 16
+-        targetSdkVersion 28
++        multiDexEnabled true
++        targetSdkVersion 32
+         versionCode 1
+         versionName "1.0"
+-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
++        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+     }
+     buildTypes {
+         release {
+@@ -23,24 +24,28 @@
+     def lifecycle_version = "1.1.1"
+ 
+     implementation fileTree(dir: 'libs', include: ['*.jar'])
+-    implementation 'com.android.support:appcompat-v7:28.0.0'
+-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+-    implementation 'com.android.support:design:28.0.0'
+-    implementation 'com.android.support:cardview-v7:28.0.0'
++    implementation 'androidx.appcompat:appcompat:1.0.0'
++    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
++    implementation 'com.google.android.material:material:1.0.0'
++    implementation 'androidx.cardview:cardview:1.0.0'
+     //architecture component
+-    implementation "android.arch.persistence.room:runtime:$room_version"
+-    annotationProcessor "android.arch.persistence.room:compiler:$room_version"
+-    implementation "android.arch.persistence.room:rxjava2:$room_version"
+-
++    implementation 'androidx.room:room-runtime:2.0.0'
++    annotationProcessor 'androidx.room:room-compiler:2.0.0'
++    implementation 'androidx.room:room-rxjava2:2.0.0'
++    implementation 'com.github.bumptech.glide:glide:4.9.0'
++    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+     //RxJava with RxAndroid
+     implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+     implementation 'io.reactivex.rxjava2:rxjava:2.2.3'
+ 
+     // ViewModel and LiveData
+-    implementation "android.arch.lifecycle:extensions:$lifecycle_version"
++    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
+     //material edittext
+     implementation 'com.rengwuxian.materialedittext:library:2.1.4'
+-
+-    implementation 'com.karumi:dexter:4.2.0'
+-
++    implementation 'de.hdodenhof:circleimageview:3.0.0'
++    implementation 'com.karumi:dexter:5.0.0'
++    implementation 'com.google.firebase:firebase-core:16.0.8'
++    implementation 'com.google.firebase:firebase-ads:17.2.0'
++    implementation 'androidx.multidex:multidex:2.0.0'
+ }
++apply plugin: 'com.google.gms.google-services'
+\ No newline at end of file
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    package=\"com.kcirque.dailynotes\">\n\n    <uses-permission android:name=\"android.permission.SEND_SMS\" />\n\n    <application\n        android:allowBackup=\"true\"\n        android:icon=\"@mipmap/ic_launcher\"\n        android:label=\"@string/app_name\"\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\n        android:supportsRtl=\"true\"\n        android:theme=\"@style/AppTheme\">\n        <activity\n            android:name=\".MainActivity\"\n            android:screenOrientation=\"portrait\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.MAIN\" />\n\n                <category android:name=\"android.intent.category.LAUNCHER\" />\n            </intent-filter>\n        </activity>\n        <activity\n            android:name=\".AddNoteActivity\"\n            android:screenOrientation=\"portrait\" />\n        <activity\n            android:name=\".SettingsActivity\"\n            android:screenOrientation=\"portrait\" />\n        <activity\n            android:name=\".ChangePinActivity\"\n            android:screenOrientation=\"portrait\" />\n    </application>\n\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+--- a/app/src/main/AndroidManifest.xml	(revision 61dc1546f0081bf150173f1093c429ea908c399c)
++++ b/app/src/main/AndroidManifest.xml	(date 1652282485839)
+@@ -2,6 +2,7 @@
+ <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+     package="com.kcirque.dailynotes">
+ 
++    <uses-permission android:name="android.permission.INTERNET" />
+     <uses-permission android:name="android.permission.SEND_SMS" />
+ 
+     <application
+@@ -12,8 +13,10 @@
+         android:supportsRtl="true"
+         android:theme="@style/AppTheme">
+         <activity
+-            android:name=".MainActivity"
+-            android:screenOrientation="portrait">
++            android:name=".activity.MainActivity"
++            android:theme="@style/AppTheme.Launcher"
++            android:screenOrientation="portrait"
++            android:exported="true">
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+ 
+@@ -21,14 +24,18 @@
+             </intent-filter>
+         </activity>
+         <activity
+-            android:name=".AddNoteActivity"
++            android:name=".activity.AddNoteActivity"
+             android:screenOrientation="portrait" />
+         <activity
+-            android:name=".SettingsActivity"
++            android:name=".activity.SettingsActivity"
+             android:screenOrientation="portrait" />
+         <activity
+-            android:name=".ChangePinActivity"
++            android:name=".activity.ChangePinActivity"
+             android:screenOrientation="portrait" />
++
++        <meta-data
++            android:name="com.google.android.gms.ads.APPLICATION_ID"
++            android:value="@string/admob_app_id" />
+     </application>
+ 
+ </manifest>
+\ No newline at end of file
+Index: app/src/main/java/com/kcirque/dailynotes/database/NoteDatabase.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.kcirque.dailynotes.database;\n\nimport android.arch.persistence.room.Database;\nimport android.arch.persistence.room.Room;\nimport android.arch.persistence.room.RoomDatabase;\nimport android.content.Context;\n\nimport com.kcirque.dailynotes.database.dao.NoteDao;\nimport com.kcirque.dailynotes.database.model.Note;\n\nimport static com.kcirque.dailynotes.database.NoteDatabase.DATABASE_VERSION;\n\n@Database(entities = {Note.class}, version = DATABASE_VERSION)\npublic abstract class NoteDatabase extends RoomDatabase {\n    public static final int DATABASE_VERSION = 1;\n    public static final String DATABASE_NAME = \"note_database\";\n\n    private static NoteDatabase sInstance;\n\n    public abstract NoteDao noteDao();\n\n    public synchronized static NoteDatabase getInstance(Context context) {\n        if (sInstance == null) {\n            sInstance = Room.databaseBuilder(context, NoteDatabase.class, DATABASE_NAME)\n                    .fallbackToDestructiveMigration()\n                    .build();\n        }\n        return sInstance;\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/kcirque/dailynotes/database/NoteDatabase.java b/app/src/main/java/com/kcirque/dailynotes/database/NoteDatabase.java
+--- a/app/src/main/java/com/kcirque/dailynotes/database/NoteDatabase.java	(revision 61dc1546f0081bf150173f1093c429ea908c399c)
++++ b/app/src/main/java/com/kcirque/dailynotes/database/NoteDatabase.java	(date 1652282831234)
+@@ -1,8 +1,8 @@
+ package com.kcirque.dailynotes.database;
+ 
+-import android.arch.persistence.room.Database;
+-import android.arch.persistence.room.Room;
+-import android.arch.persistence.room.RoomDatabase;
++import androidx.room.Database;
++import androidx.room.Room;
++import androidx.room.RoomDatabase;
+ import android.content.Context;
+ 
+ import com.kcirque.dailynotes.database.dao.NoteDao;
+Index: app/src/main/res/menu/home_menu.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<menu xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\">\n    <item\n        android:id=\"@+id/action_search\"\n        android:icon=\"@drawable/ic_search_white\"\n        android:title=\"@string/search_text\"\n        app:actionViewClass=\"android.support.v7.widget.SearchView\"\n        app:showAsAction=\"ifRoom\" />\n    <item\n        android:id=\"@+id/action_more\"\n        android:icon=\"@drawable/ic_more_vert_black\"\n        android:title=\"\"\n        app:showAsAction=\"always\">\n        <menu>\n            <item\n                android:id=\"@+id/action_sort\"\n                android:icon=\"@drawable/ic_short_black\"\n                android:title=\"@string/sort_by_text\"\n                app:showAsAction=\"never\" />\n            <item\n                android:id=\"@+id/action_view\"\n                android:icon=\"@drawable/ic_view_list_black\"\n                android:title=\"@string/view_text\"\n                app:showAsAction=\"never\" />\n            <item\n                android:id=\"@+id/action_settings\"\n                android:icon=\"@drawable/ic_settings_black\"\n                android:title=\"@string/settings_text\"\n                app:showAsAction=\"never\" />\n            <item\n                android:id=\"@+id/action_share\"\n                android:icon=\"@drawable/ic_share_black\"\n                android:title=\"@string/share_text\"\n                app:showAsAction=\"never\" />\n            <item\n                android:id=\"@+id/action_like\"\n                android:icon=\"@drawable/ic_like_black\"\n                android:title=\"@string/like_text\"\n                app:showAsAction=\"never\" />\n            <item\n                android:id=\"@+id/action_more_apps\"\n                android:icon=\"@drawable/ic_more_apps_black\"\n                android:title=\"@string/more_apps\"\n                app:showAsAction=\"never\" />\n        </menu>\n    </item>\n</menu>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/menu/home_menu.xml b/app/src/main/res/menu/home_menu.xml
+--- a/app/src/main/res/menu/home_menu.xml	(revision 61dc1546f0081bf150173f1093c429ea908c399c)
++++ b/app/src/main/res/menu/home_menu.xml	(date 1652282831243)
+@@ -5,8 +5,8 @@
+         android:id="@+id/action_search"
+         android:icon="@drawable/ic_search_white"
+         android:title="@string/search_text"
+-        app:actionViewClass="android.support.v7.widget.SearchView"
+-        app:showAsAction="ifRoom" />
++        app:actionViewClass="androidx.appcompat.widget.SearchView"
++        app:showAsAction="ifRoom|collapseActionView" />
+     <item
+         android:id="@+id/action_more"
+         android:icon="@drawable/ic_more_vert_black"
+Index: build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// Top-level build file where you can add configuration options common to all sub-projects/modules.\n\nbuildscript {\n    \n    repositories {\n        google()\n        jcenter()\n    }\n    dependencies {\n        classpath 'com.android.tools.build:gradle:3.2.0'\n        \n\n        // NOTE: Do not place your application dependencies here; they belong\n        // in the individual module build.gradle files\n    }\n}\n\nallprojects {\n    repositories {\n        google()\n        jcenter()\n    }\n}\n\ntask clean(type: Delete) {\n    delete rootProject.buildDir\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/build.gradle b/build.gradle
+--- a/build.gradle	(revision 61dc1546f0081bf150173f1093c429ea908c399c)
++++ b/build.gradle	(date 1652282746125)
+@@ -7,9 +7,9 @@
+         jcenter()
+     }
+     dependencies {
+-        classpath 'com.android.tools.build:gradle:3.2.0'
+-        
++        classpath 'com.android.tools.build:gradle:7.1.3'
+ 
++        classpath 'com.google.gms:google-services:4.3.10'
+         // NOTE: Do not place your application dependencies here; they belong
+         // in the individual module build.gradle files
+     }
+Index: app/src/main/res/layout/note_grid_item.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<android.support.v7.widget.CardView xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"wrap_content\">\n\n    <LinearLayout\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"150dp\"\n        android:orientation=\"vertical\">\n\n        <TextView\n            android:id=\"@+id/divider\"\n            android:layout_width=\"5dp\"\n            android:layout_height=\"match_parent\"\n            android:background=\"@color/colorPrimary\"\n            android:visibility=\"gone\" />\n\n        <TextView\n            android:id=\"@+id/note_create_time_text_view\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:text=\"@string/note_time_demo\"\n            android:textSize=\"20sp\" />\n\n        <TextView\n            android:id=\"@+id/note_title_text_view\"\n            android:layout_width=\"match_parent\"\n            android:layout_height=\"0dp\"\n            android:layout_weight=\"1\"\n            android:padding=\"5dp\"\n            android:text=\"@string/notes_title_text\"\n            android:textSize=\"18sp\" />\n\n        <ImageView\n            android:visibility=\"gone\"\n            android:id=\"@+id/lock_image_view\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_gravity=\"end\"\n            android:padding=\"5dp\"\n            android:src=\"@drawable/ic_lock_black\" />\n    </LinearLayout>\n</android.support.v7.widget.CardView>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/note_grid_item.xml b/app/src/main/res/layout/note_grid_item.xml
+--- a/app/src/main/res/layout/note_grid_item.xml	(revision 61dc1546f0081bf150173f1093c429ea908c399c)
++++ b/app/src/main/res/layout/note_grid_item.xml	(date 1652282831198)
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
++<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content">
+ 
+@@ -8,7 +8,7 @@
+         android:layout_height="150dp"
+         android:orientation="vertical">
+ 
+-        <TextView
++        <de.hdodenhof.circleimageview.CircleImageView
+             android:id="@+id/divider"
+             android:layout_width="5dp"
+             android:layout_height="match_parent"
+@@ -25,19 +25,34 @@
+         <TextView
+             android:id="@+id/note_title_text_view"
+             android:layout_width="match_parent"
+-            android:layout_height="0dp"
+-            android:layout_weight="1"
++            android:layout_height="wrap_content"
++            android:ellipsize="end"
++            android:maxLines="1"
+             android:padding="5dp"
+             android:text="@string/notes_title_text"
++            android:textColor="@android:color/black"
+             android:textSize="18sp" />
+ 
++        <TextView
++            android:id="@+id/note_text_view"
++            android:layout_width="match_parent"
++            android:layout_height="0dp"
++            android:layout_weight="1"
++            android:paddingStart="10dp"
++            android:text="@string/notes_title_text"
++            android:textColor="#D0000000"
++            android:textSize="16sp"
++            android:paddingLeft="10dp" />
++
++
+         <ImageView
+-            android:visibility="gone"
+             android:id="@+id/lock_image_view"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_gravity="end"
++            android:contentDescription="@null"
+             android:padding="5dp"
+-            android:src="@drawable/ic_lock_black" />
++            android:src="@drawable/ic_lock_black"
++            android:visibility="gone" />
+     </LinearLayout>
+-</android.support.v7.widget.CardView>
+\ No newline at end of file
++</androidx.cardview.widget.CardView>
+\ No newline at end of file
+Index: app/src/main/res/layout/note_list_item.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<android.support.v7.widget.CardView xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"wrap_content\"\n    android:layout_margin=\"2dp\"\n    android:clickable=\"true\"\n    android:focusable=\"true\"\n    android:foreground=\"?attr/selectableItemBackground\"\n    app:cardElevation=\"16dp\">\n\n    <RelativeLayout\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"70dp\">\n\n        <TextView\n            android:id=\"@+id/divider\"\n            android:layout_width=\"5dp\"\n            android:layout_height=\"match_parent\"\n            android:background=\"@color/colorPrimary\" />\n\n        <TextView\n            android:id=\"@+id/note_title_text_view\"\n            android:layout_width=\"match_parent\"\n            android:layout_height=\"match_parent\"\n            android:layout_centerVertical=\"true\"\n            android:layout_toStartOf=\"@id/lock_image_view\"\n            android:layout_toLeftOf=\"@id/lock_image_view\"\n            android:layout_toEndOf=\"@id/divider\"\n            android:layout_toRightOf=\"@id/divider\"\n            android:ellipsize=\"end\"\n            android:gravity=\"center_vertical\"\n            android:padding=\"5dp\"\n            android:text=\"@string/notes_title_text\"\n            android:textColor=\"@android:color/black\"\n            android:textSize=\"20sp\" />\n\n        <ImageView\n            android:id=\"@+id/lock_image_view\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_centerVertical=\"true\"\n            android:layout_gravity=\"center_vertical\"\n            android:layout_toStartOf=\"@id/note_create_time_text_view\"\n            android:layout_toLeftOf=\"@id/note_create_time_text_view\"\n            android:padding=\"5dp\"\n            android:src=\"@drawable/ic_lock_black\"\n            android:visibility=\"gone\" />\n\n        <TextView\n            android:id=\"@+id/note_create_time_text_view\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"match_parent\"\n            android:layout_alignParentEnd=\"true\"\n            android:layout_alignParentRight=\"true\"\n            android:gravity=\"center_vertical\"\n            android:padding=\"5dp\"\n            android:text=\"@string/note_time_demo\"\n            android:textSize=\"16sp\" />\n    </RelativeLayout>\n\n\n</android.support.v7.widget.CardView>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/note_list_item.xml b/app/src/main/res/layout/note_list_item.xml
+--- a/app/src/main/res/layout/note_list_item.xml	(revision 61dc1546f0081bf150173f1093c429ea908c399c)
++++ b/app/src/main/res/layout/note_list_item.xml	(date 1652283705725)
+@@ -1,6 +1,7 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
++<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:layout_margin="2dp"
+@@ -13,16 +14,19 @@
+         android:layout_width="match_parent"
+         android:layout_height="70dp">
+ 
+-        <TextView
++        <de.hdodenhof.circleimageview.CircleImageView
+             android:id="@+id/divider"
+-            android:layout_width="5dp"
+-            android:layout_height="match_parent"
+-            android:background="@color/colorPrimary" />
++            android:layout_width="40dp"
++            android:layout_height="40dp"
++            android:layout_centerVertical="true"
++            android:src="@drawable/random_color"
++            tools:background="@color/colorPrimary" />
+ 
+         <TextView
+             android:id="@+id/note_title_text_view"
+             android:layout_width="match_parent"
+-            android:layout_height="match_parent"
++            android:layout_height="wrap_content"
++            android:layout_alignParentTop="true"
+             android:layout_centerVertical="true"
+             android:layout_toStartOf="@id/lock_image_view"
+             android:layout_toLeftOf="@id/lock_image_view"
+@@ -30,11 +34,33 @@
+             android:layout_toRightOf="@id/divider"
+             android:ellipsize="end"
+             android:gravity="center_vertical"
+-            android:padding="5dp"
++            android:maxLines="1"
++            android:paddingStart="10dp"
++            android:paddingLeft="10dp"
++            android:paddingTop="5dp"
+             android:text="@string/notes_title_text"
+             android:textColor="@android:color/black"
+             android:textSize="20sp" />
+ 
++        <TextView
++            android:id="@+id/note_text_view"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:layout_below="@id/note_title_text_view"
++            android:layout_centerVertical="true"
++            android:layout_toStartOf="@id/lock_image_view"
++            android:layout_toLeftOf="@id/lock_image_view"
++            android:layout_toEndOf="@id/divider"
++            android:layout_toRightOf="@id/divider"
++            android:ellipsize="end"
++            android:gravity="top"
++            android:maxLines="2"
++            android:paddingStart="20dp"
++            android:paddingLeft="20dp"
++            android:text="@string/notes_title_text"
++            android:textColor="#D0000000"
++            android:textSize="16sp" />
++
+         <ImageView
+             android:id="@+id/lock_image_view"
+             android:layout_width="wrap_content"
+@@ -43,6 +69,7 @@
+             android:layout_gravity="center_vertical"
+             android:layout_toStartOf="@id/note_create_time_text_view"
+             android:layout_toLeftOf="@id/note_create_time_text_view"
++            android:contentDescription="@null"
+             android:padding="5dp"
+             android:src="@drawable/ic_lock_black"
+             android:visibility="gone" />
+@@ -60,4 +87,4 @@
+     </RelativeLayout>
+ 
+ 
+-</android.support.v7.widget.CardView>
+\ No newline at end of file
++</androidx.cardview.widget.CardView>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_add_note.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<LinearLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n    xmlns:tools=\"http://schemas.android.com/tools\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    android:background=\"@color/colorBackgroundAddNote\"\n    android:orientation=\"vertical\"\n    tools:context=\".AddNoteActivity\">\n\n    <LinearLayout\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"\n        android:orientation=\"horizontal\">\n\n        <TextView\n            android:id=\"@+id/time_spend_text_view\"\n            android:layout_width=\"0dp\"\n            android:layout_height=\"wrap_content\"\n            android:layout_weight=\"1\"\n            android:padding=\"5dp\"\n            android:text=\"@string/editing_note_text\"\n            android:textSize=\"16sp\" />\n\n        <TextView\n            android:id=\"@+id/date_text_view\"\n            android:layout_width=\"0dp\"\n            android:layout_height=\"wrap_content\"\n            android:layout_weight=\"1\"\n            android:gravity=\"end\"\n            android:padding=\"5dp\"\n            android:textSize=\"16sp\"\n            tools:text=\"@string/sample_date\" />\n    </LinearLayout>\n\n    <EditText\n        android:id=\"@+id/note_edit_text\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"match_parent\"\n        android:layout_marginTop=\"5dp\"\n        android:autofillHints=\"@string/editing_note_text\"\n        android:background=\"@android:color/transparent\"\n        android:clickable=\"true\"\n        android:focusable=\"true\"\n        android:gravity=\"start\"\n        android:inputType=\"textMultiLine\"\n        android:textAlignment=\"viewStart\"\n        android:textSize=\"18sp\" />\n</LinearLayout>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_add_note.xml b/app/src/main/res/layout/activity_add_note.xml
+--- a/app/src/main/res/layout/activity_add_note.xml	(revision 61dc1546f0081bf150173f1093c429ea908c399c)
++++ b/app/src/main/res/layout/activity_add_note.xml	(date 1652283765969)
+@@ -6,7 +6,7 @@
+     android:layout_height="match_parent"
+     android:background="@color/colorBackgroundAddNote"
+     android:orientation="vertical"
+-    tools:context=".AddNoteActivity">
++    tools:context=".activity.AddNoteActivity">
+ 
+     <LinearLayout
+         android:layout_width="match_parent"
+@@ -17,6 +17,7 @@
+             android:id="@+id/time_spend_text_view"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
++
+             android:layout_weight="1"
+             android:padding="5dp"
+             android:text="@string/editing_note_text"
+@@ -33,17 +34,32 @@
+             tools:text="@string/sample_date" />
+     </LinearLayout>
+ 
++    <EditText
++        android:id="@+id/note_title_edit_text"
++        android:layout_width="match_parent"
++        android:layout_height="40sp"
++        android:layout_margin="3dp"
++        android:background="@drawable/rounded_border_edit_text"
++        android:gravity="start"
++        android:hint="@string/note_title"
++        android:inputType="textCapSentences"
++        android:padding="5dp"
++        android:textSize="20sp" />
++
+     <EditText
+         android:id="@+id/note_edit_text"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
++        android:layout_margin="3dp"
+         android:layout_marginTop="5dp"
+         android:autofillHints="@string/editing_note_text"
+-        android:background="@android:color/transparent"
++        android:background="@drawable/rounded_border_edit_text"
+         android:clickable="true"
+         android:focusable="true"
+         android:gravity="start"
+-        android:inputType="textMultiLine"
++        android:hint="@string/type_notes_here"
++        android:inputType="textMultiLine|textCapSentences"
++        android:padding="5dp"
+         android:textAlignment="viewStart"
+         android:textSize="18sp" />
+ </LinearLayout>
+Index: app/src/main/java/com/kcirque/dailynotes/MainActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/kcirque/dailynotes/MainActivity.java b/app/src/main/java/com/kcirque/dailynotes/activity/MainActivity.java
+rename from app/src/main/java/com/kcirque/dailynotes/MainActivity.java
+rename to app/src/main/java/com/kcirque/dailynotes/activity/MainActivity.java
+--- a/app/src/main/java/com/kcirque/dailynotes/MainActivity.java	(revision 61dc1546f0081bf150173f1093c429ea908c399c)
++++ b/app/src/main/java/com/kcirque/dailynotes/activity/MainActivity.java	(date 1652283943320)
+@@ -1,49 +1,63 @@
+-package com.kcirque.dailynotes;
++package com.kcirque.dailynotes.activity;
+ 
+ import android.Manifest;
+-import android.arch.lifecycle.ViewModelProviders;
++import androidx.lifecycle.ViewModelProviders;
+ import android.content.DialogInterface;
+ import android.content.Intent;
+ import android.net.Uri;
+-import android.support.design.widget.FloatingActionButton;
+-import android.support.v7.app.AlertDialog;
+-import android.support.v7.app.AppCompatActivity;
++import com.google.android.material.floatingactionbutton.FloatingActionButton;
++import androidx.appcompat.app.AlertDialog;
++import androidx.appcompat.app.AppCompatActivity;
+ import android.os.Bundle;
+-import android.support.v7.widget.DefaultItemAnimator;
+-import android.support.v7.widget.GridLayoutManager;
+-import android.support.v7.widget.LinearLayoutManager;
+-import android.support.v7.widget.RecyclerView;
+-import android.support.v7.widget.SearchView;
++import androidx.recyclerview.widget.DefaultItemAnimator;
++import androidx.recyclerview.widget.GridLayoutManager;
++import androidx.recyclerview.widget.LinearLayoutManager;
++import androidx.appcompat.widget.PopupMenu;
++import androidx.recyclerview.widget.RecyclerView;
++import androidx.appcompat.widget.SearchView;
++import android.util.Log;
+ import android.view.Menu;
+ import android.view.MenuItem;
+ import android.view.View;
+ import android.widget.TextView;
+ import android.widget.Toast;
+ 
++import com.google.android.gms.ads.AdListener;
++import com.google.android.gms.ads.AdRequest;
++import com.google.android.gms.ads.AdView;
++import com.google.android.gms.ads.InterstitialAd;
++import com.google.android.gms.ads.MobileAds;
++import com.google.android.gms.ads.reward.RewardItem;
++import com.google.android.gms.ads.reward.RewardedVideoAd;
++import com.google.android.gms.ads.reward.RewardedVideoAdListener;
+ import com.karumi.dexter.Dexter;
+ import com.karumi.dexter.PermissionToken;
+ import com.karumi.dexter.listener.PermissionDeniedResponse;
+ import com.karumi.dexter.listener.PermissionGrantedResponse;
+ import com.karumi.dexter.listener.PermissionRequest;
+ import com.karumi.dexter.listener.single.PermissionListener;
++import com.kcirque.dailynotes.R;
+ import com.kcirque.dailynotes.adapter.NotesAdapter;
+ import com.kcirque.dailynotes.database.model.Note;
+ import com.kcirque.dailynotes.database.viewmodel.NoteViewModel;
+-import com.kcirque.dailynotes.utils.MyDividerItemDecoration;
+ import com.kcirque.dailynotes.utils.RecyclerTouchListener;
+ import com.kcirque.dailynotes.utils.SharedPref;
+ 
+ import java.util.ArrayList;
+ import java.util.List;
+ 
++import io.reactivex.Observable;
++import io.reactivex.ObservableEmitter;
++import io.reactivex.ObservableOnSubscribe;
+ import io.reactivex.android.schedulers.AndroidSchedulers;
+ import io.reactivex.disposables.CompositeDisposable;
++import io.reactivex.functions.Action;
+ import io.reactivex.functions.Consumer;
+ import io.reactivex.schedulers.Schedulers;
+ 
+ 
+-public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
+-    private CompositeDisposable compositeDisposable = new CompositeDisposable();
++public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, RewardedVideoAdListener {
++    private final CompositeDisposable compositeDisposable = new CompositeDisposable();
+     private NoteViewModel noteViewModel;
+     private static final String TAG = "MainActivity";
+     List<Note> allNotes;
+@@ -55,12 +69,30 @@
+     private static final int GRID_VIEW = 2;
+     private RecyclerView noteListRecyclerView;
+     private SharedPref sharedPref;
++    private InterstitialAd mInterstitialAd;
++    private RewardedVideoAd mRewardedVideoAd;
++    int count = 0;
+ 
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
++        setTheme(R.style.AppTheme);
+         setContentView(R.layout.activity_main);
+ 
++        MobileAds.initialize(this,
++                getString(R.string.admob_app_id));
++
++        AdView adView = findViewById(R.id.adView);
++        AdRequest adRequest = new AdRequest.Builder().build();
++        adView.loadAd(adRequest);
++        mInterstitialAd = new InterstitialAd(this);
++        mInterstitialAd.setAdUnitId(getString(R.string.interstitial_unit_id));
++        mInterstitialAd.loadAd(new AdRequest.Builder().build());
++
++        mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
++        mRewardedVideoAd.setRewardedVideoAdListener(this);
++        loadRewardedVideoAd();
++
+         noteViewModel = ViewModelProviders.of(this).get(NoteViewModel.class);
+         Dexter.withActivity(this)
+                 .withPermission(Manifest.permission.SEND_SMS)
+@@ -75,6 +107,7 @@
+                         // check for permanent denial of permission
+                         if (response.isPermanentlyDenied()) {
+                             // navigate user to app settings
++                            Log.e(TAG, "onPermissionDenied: ");
+                         }
+                     }
+ 
+@@ -89,8 +122,18 @@
+         addNoteFab.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+-                Intent addNoteIntent = new Intent(getApplicationContext(), AddNoteActivity.class);
+-                startActivity(addNoteIntent);
++                count++;
++                if (count % 3 == 0) {
++                    if (mRewardedVideoAd.isLoaded()) {
++                        mRewardedVideoAd.show();
++                    } else {
++                        Intent addNoteIntent = new Intent(getApplicationContext(), AddNoteActivity.class);
++                        startActivity(addNoteIntent);
++                    }
++                } else {
++                    Intent addNoteIntent = new Intent(getApplicationContext(), AddNoteActivity.class);
++                    startActivity(addNoteIntent);
++                }
+             }
+         });
+         sharedPref = new SharedPref(this);
+@@ -103,15 +146,47 @@
+         }
+         noteListRecyclerView.addOnItemTouchListener(new RecyclerTouchListener(this, noteListRecyclerView, new RecyclerTouchListener.ClickListener() {
+             @Override
+-            public void onClick(View view, int position) {
+-                Intent updateNote = new Intent(MainActivity.this, AddNoteActivity.class);
+-                updateNote.putExtra(AddNoteActivity.EXTRA_NOTE, allNotes.get(position));
+-                startActivity(updateNote);
++            public void onClick(View view, final int position) {
++                mInterstitialAd.setAdListener(new AdListener() {
++                    @Override
++                    public void onAdClosed() {
++                        mInterstitialAd.loadAd(new AdRequest.Builder().build());
++                        Intent updateNote = new Intent(MainActivity.this, AddNoteActivity.class);
++                        updateNote.putExtra(AddNoteActivity.EXTRA_NOTE, allNotes.get(position));
++                        startActivity(updateNote);
++                    }
++                });
++                if (mInterstitialAd.isLoaded()) {
++                    mInterstitialAd.show();
++                } else {
++                    Intent updateNote = new Intent(MainActivity.this, AddNoteActivity.class);
++                    updateNote.putExtra(AddNoteActivity.EXTRA_NOTE, allNotes.get(position));
++                    startActivity(updateNote);
++                }
+             }
+ 
+             @Override
+-            public void onLongClick(View view, int position) {
+-
++            public void onLongClick(View view, final int position) {
++                PopupMenu popupMenu = new PopupMenu(MainActivity.this, view);
++                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
++                    @Override
++                    public boolean onMenuItemClick(MenuItem menuItem) {
++                        switch (menuItem.getItemId()) {
++                            case R.id.action_delete:
++                                deleteNote(allNotes.get(position));
++                                //fetchAllNotes(ORDER_BY_DATE);
++                                break;
++                            case R.id.action_edit:
++                                Intent updateNote = new Intent(MainActivity.this, AddNoteActivity.class);
++                                updateNote.putExtra(AddNoteActivity.EXTRA_NOTE, allNotes.get(position));
++                                startActivity(updateNote);
++                                break;
++                        }
++                        return true;
++                    }
++                });
++                popupMenu.inflate(R.menu.popup_menu);
++                popupMenu.show();
+             }
+         }));
+ 
+@@ -217,18 +292,50 @@
+         builder.show();
+     }
+ 
++    private void deleteNote(final Note note) {
++        if (note != null) {
++            compositeDisposable.add(
++                    Observable.create(new ObservableOnSubscribe<Object>() {
++                        @Override
++                        public void subscribe(ObservableEmitter<Object> emitter) {
++                            noteViewModel.deleteNote(note);
++                            emitter.onComplete();
++                        }
++                    }).subscribeOn(Schedulers.io())
++                            .observeOn(AndroidSchedulers.mainThread())
++                            .subscribe(new Consumer<Object>() {
++                                @Override
++                                public void accept(Object o) {
++
++                                }
++                            }, new Consumer<Throwable>() {
++                                @Override
++                                public void accept(Throwable throwable) {
++                                    Log.e(TAG, "accept: " + throwable.getMessage());
++                                    Toast.makeText(MainActivity.this, "" + throwable.getMessage(), Toast.LENGTH_SHORT).show();
++                                }
++                            }, new Action() {
++                                @Override
++                                public void run() {
++                                    Toast.makeText(MainActivity.this, "Note Deleted", Toast.LENGTH_SHORT).show();
++                                }
++                            })
++            );
++        }
++    }
++
+     private void fetchAllNotes(int orderBy) {
+         if (orderBy == ORDER_BY_TITLE) {
+             compositeDisposable.add(noteViewModel.getAllNotesOrderByTitle().subscribeOn(Schedulers.io())
+                     .observeOn(AndroidSchedulers.mainThread())
+                     .subscribe(new Consumer<List<Note>>() {
+                         @Override
+-                        public void accept(List<Note> notes) throws Exception {
++                        public void accept(List<Note> notes) {
+                             getAllNotes(notes);
+                         }
+                     }, new Consumer<Throwable>() {
+                         @Override
+-                        public void accept(Throwable throwable) throws Exception {
++                        public void accept(Throwable throwable) {
+                             Toast.makeText(MainActivity.this, throwable.getMessage(), Toast.LENGTH_SHORT).show();
+                         }
+                     }));
+@@ -237,12 +344,12 @@
+                     .observeOn(AndroidSchedulers.mainThread())
+                     .subscribe(new Consumer<List<Note>>() {
+                         @Override
+-                        public void accept(List<Note> notes) throws Exception {
++                        public void accept(List<Note> notes) {
+                             getAllNotes(notes);
+                         }
+                     }, new Consumer<Throwable>() {
+                         @Override
+-                        public void accept(Throwable throwable) throws Exception {
++                        public void accept(Throwable throwable) {
+                             Toast.makeText(MainActivity.this, throwable.getMessage(), Toast.LENGTH_SHORT).show();
+                         }
+                     }));
+@@ -279,25 +386,70 @@
+ 
+     private void likeApps() {
+         Intent intent = new Intent(Intent.ACTION_VIEW);
+-        intent.setData(Uri.parse("https://kcirqueit.com/"));
++        intent.setData(Uri.parse("https://learncoding.info/"));
+         startActivity(intent);
+     }
+ 
+     private void moreApps() {
+         Intent intent = new Intent(Intent.ACTION_VIEW);
+-        intent.setData(Uri.parse("https://kcirqueit.com/"));
++        intent.setData(Uri.parse("https://learncoding.info/"));
+         startActivity(intent);
+     }
+ 
+     private void shareApps() {
+         Intent shareIntent = new Intent(Intent.ACTION_SEND);
+         shareIntent.setType("text/type");
+-        String subject = "QR and Barcode Scanner";
+-        String body = "This is most user app to scan any QR code & Barcode.\nget from www.kcirqueit.com";
+-
++        String subject = "Daily Notes";
++        String body = "This is most user app to keep personal notes to maintain daily life";
+         shareIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
+         shareIntent.putExtra(Intent.EXTRA_TEXT, body);
+         startActivity(Intent.createChooser(shareIntent, "Share with"));
+     }
+ 
++    private void loadRewardedVideoAd() {
++        mRewardedVideoAd.loadAd(getString(R.string.reward_video_unit_id),
++                new AdRequest.Builder().build());
++    }
++
++    @Override
++    public void onRewardedVideoAdLoaded() {
++
++    }
++
++    @Override
++    public void onRewardedVideoAdOpened() {
++
++    }
++
++    @Override
++    public void onRewardedVideoStarted() {
++
++    }
++
++    @Override
++    public void onRewardedVideoAdClosed() {
++        loadRewardedVideoAd();
++        Intent addNoteIntent = new Intent(getApplicationContext(), AddNoteActivity.class);
++        startActivity(addNoteIntent);
++    }
++
++    @Override
++    public void onRewarded(RewardItem rewardItem) {
++
++    }
++
++    @Override
++    public void onRewardedVideoAdLeftApplication() {
++
++    }
++
++    @Override
++    public void onRewardedVideoAdFailedToLoad(int i) {
++
++    }
++
++    @Override
++    public void onRewardedVideoCompleted() {
++
++    }
+ }
+Index: app/src/main/res/values/colors.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<resources>\n    <color name=\"colorPrimary\">#03A9F4</color>\n    <color name=\"colorPrimaryDark\">#0288D1</color>\n    <color name=\"colorAccent\">#FF4081</color>\n    <color name=\"colorText\">#FFFFFF</color>\n    <color name=\"colorBackgroundAddNote\">#fcf8ca</color>\n    <color name=\"colorDivider\">#BDBDBD</color>\n    <color name=\"colorTextSecondary\">#757575</color>\n    <color name=\"colorTextPrimary\">#212121</color>\n    <color name=\"textColor\">#0a091b</color>\n    <color name=\"textColorHint\">#0a091b</color>\n</resources>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values/colors.xml b/app/src/main/res/values/colors.xml
+--- a/app/src/main/res/values/colors.xml	(revision 61dc1546f0081bf150173f1093c429ea908c399c)
++++ b/app/src/main/res/values/colors.xml	(date 1554799616000)
+@@ -2,7 +2,7 @@
+ <resources>
+     <color name="colorPrimary">#03A9F4</color>
+     <color name="colorPrimaryDark">#0288D1</color>
+-    <color name="colorAccent">#FF4081</color>
++    <color name="colorAccent">#9D1F23</color>
+     <color name="colorText">#FFFFFF</color>
+     <color name="colorBackgroundAddNote">#fcf8ca</color>
+     <color name="colorDivider">#BDBDBD</color>
+Index: app/src/main/java/com/kcirque/dailynotes/AddNoteActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/kcirque/dailynotes/AddNoteActivity.java b/app/src/main/java/com/kcirque/dailynotes/activity/AddNoteActivity.java
+rename from app/src/main/java/com/kcirque/dailynotes/AddNoteActivity.java
+rename to app/src/main/java/com/kcirque/dailynotes/activity/AddNoteActivity.java
+--- a/app/src/main/java/com/kcirque/dailynotes/AddNoteActivity.java	(revision 61dc1546f0081bf150173f1093c429ea908c399c)
++++ b/app/src/main/java/com/kcirque/dailynotes/activity/AddNoteActivity.java	(date 1652282831165)
+@@ -1,14 +1,14 @@
+-package com.kcirque.dailynotes;
++package com.kcirque.dailynotes.activity;
+ 
+-import android.arch.lifecycle.ViewModelProviders;
++import androidx.lifecycle.ViewModelProviders;
+ import android.content.ClipData;
+ import android.content.ClipboardManager;
+ import android.content.Context;
+ import android.content.DialogInterface;
+ import android.content.Intent;
+ import android.net.Uri;
+-import android.support.v7.app.AlertDialog;
+-import android.support.v7.app.AppCompatActivity;
++import androidx.appcompat.app.AlertDialog;
++import androidx.appcompat.app.AppCompatActivity;
+ import android.os.Bundle;
+ import android.text.TextUtils;
+ import android.util.Log;
+@@ -20,21 +20,19 @@
+ import android.widget.TextView;
+ import android.widget.Toast;
+ 
+-import com.karumi.dexter.Dexter;
++
++import com.kcirque.dailynotes.R;
+ import com.kcirque.dailynotes.database.model.Note;
+ import com.kcirque.dailynotes.database.viewmodel.NoteViewModel;
+ import com.kcirque.dailynotes.utils.SharedPref;
+-import com.rengwuxian.materialedittext.MaterialEditText;
+-
+-import org.w3c.dom.Text;
+ 
+ import java.text.SimpleDateFormat;
+ import java.util.Date;
++import java.util.Locale;
+ 
+ import io.reactivex.Observable;
+ import io.reactivex.ObservableEmitter;
+ import io.reactivex.ObservableOnSubscribe;
+-import io.reactivex.Scheduler;
+ import io.reactivex.android.schedulers.AndroidSchedulers;
+ import io.reactivex.disposables.CompositeDisposable;
+ import io.reactivex.functions.Action;
+@@ -44,13 +42,13 @@
+ public class AddNoteActivity extends AppCompatActivity {
+     public static final String EXTRA_NOTE = "com.kcirque.dailynotes.EXTRA_NOTE";
+     private static final String TAG = "AddNoteActivity";
+-    SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM, yyyy hh:mm a");
++    SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM, yyyy hh:mm a", Locale.US);
+     Date date = new Date(System.currentTimeMillis());
+ 
+     NoteViewModel noteViewModel;
+ 
+     CompositeDisposable disposable = new CompositeDisposable();
+-    private EditText noteEditText;
++    private EditText noteEditText, titleEditText;
+ 
+     private Note note = null;
+ 
+@@ -65,8 +63,10 @@
+ 
+         currentDateTextView = findViewById(R.id.date_text_view);
+         noteEditText = findViewById(R.id.note_edit_text);
++        titleEditText = findViewById(R.id.note_title_edit_text);
+ 
+-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
++        if (getSupportActionBar() != null)
++            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+         Bundle noteBundle = getIntent().getExtras();
+         sharedPref = new SharedPref(this);
+         if (noteBundle != null) {
+@@ -92,16 +92,18 @@
+             long hours = minute / 60;
+             if (hours > 24) {
+                 int day = (int) (hours / 24);
+-                timeSpentTextView.setText(day + " Days ago");
++                timeSpentTextView.setText(String.format(Locale.US, "%d Days ago", day));
+             } else {
+-                timeSpentTextView.setText(hours + " Hours ago");
++                timeSpentTextView.setText(String.format(Locale.US, "%d Hours ago", hours));
+             }
+         } else {
+-            timeSpentTextView.setText(minute + " Minutes ago");
++            timeSpentTextView.setText(String.format(Locale.US, "%d Minutes ago", minute));
+         }
+         currentDateTextView.setText(dateFormat.format(date));
+         noteEditText.setText(note.getDescription());
+         noteEditText.setSelection(noteEditText.getText().toString().length());
++        titleEditText.setText(note.getTitle());
++        titleEditText.setSelection(titleEditText.getText().toString().length());
+     }
+ 
+     @Override
+@@ -234,8 +236,9 @@
+ 
+     private void sendMessage() {
+         Intent intent = new Intent(Intent.ACTION_VIEW);
+-        intent.setType("vnd.android-dir/mms-sms");
+-        intent.setData(Uri.parse("smsto:"));
++        //intent.setType("vnd.android-dir/mms-sms");
++        //intent.setData(Uri.parse("smsto:"));
++        intent.setDataAndType(Uri.parse("smsto:"), "vnd.android-dir/mms-sms");
+         intent.putExtra("sms_body", noteEditText.getText().toString());
+         try {
+             startActivity(intent);
+@@ -259,7 +262,7 @@
+             disposable.add(
+                     Observable.create(new ObservableOnSubscribe<Object>() {
+                         @Override
+-                        public void subscribe(ObservableEmitter<Object> emitter) throws Exception {
++                        public void subscribe(ObservableEmitter<Object> emitter) {
+                             noteViewModel.deleteNote(note);
+                             emitter.onComplete();
+                         }
+@@ -267,18 +270,18 @@
+                             .observeOn(AndroidSchedulers.mainThread())
+                             .subscribe(new Consumer<Object>() {
+                                 @Override
+-                                public void accept(Object o) throws Exception {
++                                public void accept(Object o) {
+ 
+                                 }
+                             }, new Consumer<Throwable>() {
+                                 @Override
+-                                public void accept(Throwable throwable) throws Exception {
++                                public void accept(Throwable throwable) {
+                                     Log.e(TAG, "accept: " + throwable.getMessage());
+                                     Toast.makeText(AddNoteActivity.this, "" + throwable.getMessage(), Toast.LENGTH_SHORT).show();
+                                 }
+                             }, new Action() {
+                                 @Override
+-                                public void run() throws Exception {
++                                public void run() {
+                                     Toast.makeText(AddNoteActivity.this, "Note Deleted", Toast.LENGTH_SHORT).show();
+                                     finish();
+                                 }
+@@ -290,21 +293,24 @@
+     }
+ 
+     private void saveNote() {
++        if (TextUtils.isEmpty(titleEditText.getText())) {
++            Toast.makeText(this, "Please enter title", Toast.LENGTH_SHORT).show();
++            return;
++        }
+         if (TextUtils.isEmpty(noteEditText.getText())) {
+             Toast.makeText(this, "Please enter note", Toast.LENGTH_SHORT).show();
+             return;
+         }
++
+         String description = noteEditText.getText().toString();
+-        Log.e(TAG, "description: " + description);
+-        String[] lines = description.split("\n");
+-        String title = lines[0];
+-        Log.e(TAG, "title: " + title);
++        String title = titleEditText.getText().toString();
++
+         long noteDate = date.getTime();
+         final Note note = new Note(title, description, noteDate, false);
+         disposable.add(
+                 Observable.create(new ObservableOnSubscribe<Object>() {
+                     @Override
+-                    public void subscribe(ObservableEmitter<Object> emitter) throws Exception {
++                    public void subscribe(ObservableEmitter<Object> emitter) {
+                         noteViewModel.insertNote(note);
+                         emitter.onComplete();
+                     }
+@@ -312,17 +318,17 @@
+                         .subscribeOn(Schedulers.io())
+                         .subscribe(new Consumer<Object>() {
+                             @Override
+-                            public void accept(Object o) throws Exception {
++                            public void accept(Object o) {
+ 
+                             }
+                         }, new Consumer<Throwable>() {
+                             @Override
+-                            public void accept(Throwable throwable) throws Exception {
++                            public void accept(Throwable throwable) {
+ 
+                             }
+                         }, new Action() {
+                             @Override
+-                            public void run() throws Exception {
++                            public void run() {
+                                 Toast.makeText(AddNoteActivity.this, "Note Added", Toast.LENGTH_SHORT).show();
+                                 finish();
+                             }
+@@ -331,22 +337,23 @@
+     }
+ 
+     private void updateNote(Note note, boolean isLock) {
++        if (TextUtils.isEmpty(titleEditText.getText())) {
++            Toast.makeText(this, "Please enter title", Toast.LENGTH_SHORT).show();
++            return;
++        }
+         if (TextUtils.isEmpty(noteEditText.getText())) {
+             Toast.makeText(this, "Please enter note", Toast.LENGTH_SHORT).show();
+             return;
+         }
+         String description = noteEditText.getText().toString();
+-        Log.e(TAG, "description: " + description);
+-        String[] lines = description.split("\n");
+-        String title = lines[0];
+-        Log.e(TAG, "title: " + title);
++        String title = titleEditText.getText().toString();
+         long noteDate = date.getTime();
+         final Note updateNote = new Note(title, description, noteDate, isLock);
+         updateNote.setId(note.getId());
+         disposable.add(
+                 Observable.create(new ObservableOnSubscribe<Object>() {
+                     @Override
+-                    public void subscribe(ObservableEmitter<Object> emitter) throws Exception {
++                    public void subscribe(ObservableEmitter<Object> emitter) {
+                         noteViewModel.updateNote(updateNote);
+                         emitter.onComplete();
+                     }
+@@ -354,17 +361,17 @@
+                         .subscribeOn(Schedulers.io())
+                         .subscribe(new Consumer<Object>() {
+                             @Override
+-                            public void accept(Object o) throws Exception {
++                            public void accept(Object o) {
+ 
+                             }
+                         }, new Consumer<Throwable>() {
+                             @Override
+-                            public void accept(Throwable throwable) throws Exception {
++                            public void accept(Throwable throwable) {
+ 
+                             }
+                         }, new Action() {
+                             @Override
+-                            public void run() throws Exception {
++                            public void run() {
+                                 Toast.makeText(AddNoteActivity.this, "Note Updated", Toast.LENGTH_SHORT).show();
+                                 finish();
+                             }
+Index: gradle/wrapper/gradle-wrapper.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>distributionBase=GRADLE_USER_HOME\ndistributionPath=wrapper/dists\ndistributionUrl=https\\://services.gradle.org/distributions/gradle-4.6-all.zip\nzipStoreBase=GRADLE_USER_HOME\nzipStorePath=wrapper/dists\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gradle/wrapper/gradle-wrapper.properties b/gradle/wrapper/gradle-wrapper.properties
+--- a/gradle/wrapper/gradle-wrapper.properties	(revision 61dc1546f0081bf150173f1093c429ea908c399c)
++++ b/gradle/wrapper/gradle-wrapper.properties	(date 1652282707582)
+@@ -1,5 +1,5 @@
+ distributionBase=GRADLE_USER_HOME
+ distributionPath=wrapper/dists
+-distributionUrl=https\://services.gradle.org/distributions/gradle-4.6-all.zip
++distributionUrl=https\://services.gradle.org/distributions/gradle-7.2-all.zip
+ zipStoreBase=GRADLE_USER_HOME
+ zipStorePath=wrapper/dists
+Index: .idea/runConfigurations.xml
+===================================================================
+diff --git a/.idea/runConfigurations.xml b/.idea/runConfigurations.xml
+deleted file mode 100644
+--- a/.idea/runConfigurations.xml	(revision 61dc1546f0081bf150173f1093c429ea908c399c)
++++ /dev/null	(revision 61dc1546f0081bf150173f1093c429ea908c399c)
+@@ -1,12 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="RunConfigurationProducerService">
+-    <option name="ignoredProducers">
+-      <set>
+-        <option value="org.jetbrains.plugins.gradle.execution.test.runner.AllInPackageGradleConfigurationProducer" />
+-        <option value="org.jetbrains.plugins.gradle.execution.test.runner.TestClassGradleConfigurationProducer" />
+-        <option value="org.jetbrains.plugins.gradle.execution.test.runner.TestMethodGradleConfigurationProducer" />
+-      </set>
+-    </option>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: app/src/main/res/drawable/launcher_screen_with_logo.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/launcher_screen_with_logo.xml b/app/src/main/res/drawable/launcher_screen_with_logo.xml
+new file mode 100644
+--- /dev/null	(date 1556110214000)
++++ b/app/src/main/res/drawable/launcher_screen_with_logo.xml	(date 1556110214000)
+@@ -0,0 +1,13 @@
++<?xml version="1.0" encoding="utf-8"?>
++<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
++    android:opacity="opaque">
++
++    <item android:drawable="@drawable/radiant" />
++
++    <item>
++        <bitmap
++            android:gravity="center"
++            android:src="@drawable/note" />
++    </item>
++
++</layer-list>
+\ No newline at end of file
+Index: app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<adaptive-icon xmlns:android=\"http://schemas.android.com/apk/res/android\">\n    <background android:drawable=\"@drawable/ic_launcher_background\" />\n    <foreground android:drawable=\"@drawable/ic_launcher_foreground\" />\n</adaptive-icon>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml b/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
+--- a/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml	(revision 61dc1546f0081bf150173f1093c429ea908c399c)
++++ b/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml	(date 1556110394000)
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+-    <background android:drawable="@drawable/ic_launcher_background" />
+-    <foreground android:drawable="@drawable/ic_launcher_foreground" />
++    <background android:drawable="@color/ic_launcher_background"/>
++    <foreground android:drawable="@mipmap/ic_launcher_foreground"/>
+ </adaptive-icon>
+\ No newline at end of file
+Index: .idea/jarRepositories.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/jarRepositories.xml b/.idea/jarRepositories.xml
+new file mode 100644
+--- /dev/null	(date 1652282529718)
++++ b/.idea/jarRepositories.xml	(date 1652282529718)
+@@ -0,0 +1,40 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="RemoteRepositoriesConfiguration">
++    <remote-repository>
++      <option name="id" value="central" />
++      <option name="name" value="Maven Central repository" />
++      <option name="url" value="https://repo1.maven.org/maven2" />
++    </remote-repository>
++    <remote-repository>
++      <option name="id" value="jboss.community" />
++      <option name="name" value="JBoss Community repository" />
++      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
++    </remote-repository>
++    <remote-repository>
++      <option name="id" value="BintrayJCenter" />
++      <option name="name" value="BintrayJCenter" />
++      <option name="url" value="https://jcenter.bintray.com/" />
++    </remote-repository>
++    <remote-repository>
++      <option name="id" value="Google" />
++      <option name="name" value="Google" />
++      <option name="url" value="https://dl.google.com/dl/android/maven2/" />
++    </remote-repository>
++    <remote-repository>
++      <option name="id" value="$USER_HOME$/Library/Android/sdk/extras/m2repository" />
++      <option name="name" value="$USER_HOME$/Library/Android/sdk/extras/m2repository" />
++      <option name="url" value="file:$USER_HOME$/Library/Android/sdk/extras/m2repository" />
++    </remote-repository>
++    <remote-repository>
++      <option name="id" value="$USER_HOME$/Library/Android/sdk/extras/google/m2repository" />
++      <option name="name" value="$USER_HOME$/Library/Android/sdk/extras/google/m2repository" />
++      <option name="url" value="file:$USER_HOME$/Library/Android/sdk/extras/google/m2repository" />
++    </remote-repository>
++    <remote-repository>
++      <option name="id" value="$USER_HOME$/Library/Android/sdk/extras/android/m2repository" />
++      <option name="name" value="$USER_HOME$/Library/Android/sdk/extras/android/m2repository" />
++      <option name="url" value="file:$USER_HOME$/Library/Android/sdk/extras/android/m2repository" />
++    </remote-repository>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"NullableNotNullManager\">\n    <option name=\"myDefaultNullable\" value=\"android.support.annotation.Nullable\" />\n    <option name=\"myDefaultNotNull\" value=\"android.support.annotation.NonNull\" />\n    <option name=\"myNullables\">\n      <value>\n        <list size=\"7\">\n          <item index=\"0\" class=\"java.lang.String\" itemvalue=\"org.jetbrains.annotations.Nullable\" />\n          <item index=\"1\" class=\"java.lang.String\" itemvalue=\"javax.annotation.Nullable\" />\n          <item index=\"2\" class=\"java.lang.String\" itemvalue=\"javax.annotation.CheckForNull\" />\n          <item index=\"3\" class=\"java.lang.String\" itemvalue=\"edu.umd.cs.findbugs.annotations.Nullable\" />\n          <item index=\"4\" class=\"java.lang.String\" itemvalue=\"android.support.annotation.Nullable\" />\n          <item index=\"5\" class=\"java.lang.String\" itemvalue=\"androidx.annotation.Nullable\" />\n          <item index=\"6\" class=\"java.lang.String\" itemvalue=\"androidx.annotation.RecentlyNullable\" />\n        </list>\n      </value>\n    </option>\n    <option name=\"myNotNulls\">\n      <value>\n        <list size=\"6\">\n          <item index=\"0\" class=\"java.lang.String\" itemvalue=\"org.jetbrains.annotations.NotNull\" />\n          <item index=\"1\" class=\"java.lang.String\" itemvalue=\"javax.annotation.Nonnull\" />\n          <item index=\"2\" class=\"java.lang.String\" itemvalue=\"edu.umd.cs.findbugs.annotations.NonNull\" />\n          <item index=\"3\" class=\"java.lang.String\" itemvalue=\"android.support.annotation.NonNull\" />\n          <item index=\"4\" class=\"java.lang.String\" itemvalue=\"androidx.annotation.NonNull\" />\n          <item index=\"5\" class=\"java.lang.String\" itemvalue=\"androidx.annotation.RecentlyNonNull\" />\n        </list>\n      </value>\n    </option>\n  </component>\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_1_7\" project-jdk-name=\"1.8\" project-jdk-type=\"JavaSDK\">\n    <output url=\"file://$PROJECT_DIR$/build/classes\" />\n  </component>\n  <component name=\"ProjectType\">\n    <option name=\"id\" value=\"Android\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 61dc1546f0081bf150173f1093c429ea908c399c)
++++ b/.idea/misc.xml	(date 1652283947867)
+@@ -1,11 +1,26 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="DesignSurface">
++    <option name="filePathToZoomLevelMap">
++      <map>
++        <entry key="app/src/main/res/drawable/rounded_border_edit_text.xml" value="0.2" />
++        <entry key="app/src/main/res/layout-land/note_list_item.xml" value="0.23897707231040563" />
++        <entry key="app/src/main/res/layout-sw600dp/note_list_item.xml" value="0.17759562841530055" />
++        <entry key="app/src/main/res/layout/activity_add_note.xml" value="0.23550724637681159" />
++        <entry key="app/src/main/res/layout/note_list_item.xml" value="0.23550724637681159" />
++        <entry key="app/src/main/res/menu/add_note_menu.xml" value="0.28229166666666666" />
++        <entry key="app/src/main/res/menu/change_pin_menu.xml" value="0.28229166666666666" />
++        <entry key="app/src/main/res/menu/home_menu.xml" value="0.28229166666666666" />
++        <entry key="app/src/main/res/menu/popup_menu.xml" value="0.28229166666666666" />
++      </map>
++    </option>
++  </component>
+   <component name="NullableNotNullManager">
+     <option name="myDefaultNullable" value="android.support.annotation.Nullable" />
+     <option name="myDefaultNotNull" value="android.support.annotation.NonNull" />
+     <option name="myNullables">
+       <value>
+-        <list size="7">
++        <list size="12">
+           <item index="0" class="java.lang.String" itemvalue="org.jetbrains.annotations.Nullable" />
+           <item index="1" class="java.lang.String" itemvalue="javax.annotation.Nullable" />
+           <item index="2" class="java.lang.String" itemvalue="javax.annotation.CheckForNull" />
+@@ -13,23 +28,33 @@
+           <item index="4" class="java.lang.String" itemvalue="android.support.annotation.Nullable" />
+           <item index="5" class="java.lang.String" itemvalue="androidx.annotation.Nullable" />
+           <item index="6" class="java.lang.String" itemvalue="androidx.annotation.RecentlyNullable" />
++          <item index="7" class="java.lang.String" itemvalue="org.checkerframework.checker.nullness.qual.Nullable" />
++          <item index="8" class="java.lang.String" itemvalue="org.checkerframework.checker.nullness.compatqual.NullableDecl" />
++          <item index="9" class="java.lang.String" itemvalue="org.checkerframework.checker.nullness.compatqual.NullableType" />
++          <item index="10" class="java.lang.String" itemvalue="org.eclipse.jdt.annotation.Nullable" />
++          <item index="11" class="java.lang.String" itemvalue="com.android.annotations.Nullable" />
+         </list>
+       </value>
+     </option>
+     <option name="myNotNulls">
+       <value>
+-        <list size="6">
++        <list size="11">
+           <item index="0" class="java.lang.String" itemvalue="org.jetbrains.annotations.NotNull" />
+           <item index="1" class="java.lang.String" itemvalue="javax.annotation.Nonnull" />
+           <item index="2" class="java.lang.String" itemvalue="edu.umd.cs.findbugs.annotations.NonNull" />
+           <item index="3" class="java.lang.String" itemvalue="android.support.annotation.NonNull" />
+           <item index="4" class="java.lang.String" itemvalue="androidx.annotation.NonNull" />
+           <item index="5" class="java.lang.String" itemvalue="androidx.annotation.RecentlyNonNull" />
++          <item index="6" class="java.lang.String" itemvalue="org.checkerframework.checker.nullness.qual.NonNull" />
++          <item index="7" class="java.lang.String" itemvalue="org.checkerframework.checker.nullness.compatqual.NonNullDecl" />
++          <item index="8" class="java.lang.String" itemvalue="org.checkerframework.checker.nullness.compatqual.NonNullType" />
++          <item index="9" class="java.lang.String" itemvalue="com.android.annotations.NonNull" />
++          <item index="10" class="java.lang.String" itemvalue="org.eclipse.jdt.annotation.NonNull" />
+         </list>
+       </value>
+     </option>
+   </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" project-jdk-name="1.8" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/build/classes" />
+   </component>
+   <component name="ProjectType">
+Index: app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<adaptive-icon xmlns:android=\"http://schemas.android.com/apk/res/android\">\n    <background android:drawable=\"@drawable/ic_launcher_background\" />\n    <foreground android:drawable=\"@drawable/ic_launcher_foreground\" />\n</adaptive-icon>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml b/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+--- a/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml	(revision 61dc1546f0081bf150173f1093c429ea908c399c)
++++ b/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml	(date 1556110394000)
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+-    <background android:drawable="@drawable/ic_launcher_background" />
+-    <foreground android:drawable="@drawable/ic_launcher_foreground" />
++    <background android:drawable="@color/ic_launcher_background"/>
++    <foreground android:drawable="@mipmap/ic_launcher_foreground"/>
+ </adaptive-icon>
+\ No newline at end of file
+Index: app/src/main/java/com/kcirque/dailynotes/database/viewmodel/NoteViewModel.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.kcirque.dailynotes.database.viewmodel;\n\nimport android.app.Application;\nimport android.arch.lifecycle.AndroidViewModel;\nimport android.support.annotation.NonNull;\n\nimport com.kcirque.dailynotes.database.model.Note;\nimport com.kcirque.dailynotes.database.repository.NoteRepository;\n\nimport java.util.List;\n\nimport io.reactivex.Flowable;\n\npublic class NoteViewModel extends AndroidViewModel {\n    private NoteRepository noteRepository;\n    private Flowable<List<Note>> allNotes;\n    private Flowable<List<Note>> allNotesOrderByTitle;\n\n    public NoteViewModel(@NonNull Application application) {\n        super(application);\n        noteRepository = new NoteRepository(application);\n        allNotes = noteRepository.getAllNotes();\n        allNotesOrderByTitle = noteRepository.getAllNotesOrderByTitle();\n    }\n\n    public void insertNote(Note note) {\n        noteRepository.insertNote(note);\n    }\n\n    public void updateNote(Note note) {\n        noteRepository.updateNote(note);\n    }\n\n    public void deleteNote(Note note) {\n        noteRepository.deleteNote(note);\n    }\n\n    public void deleteAllNote() {\n        noteRepository.deleteAllNotes();\n    }\n\n    public Flowable<List<Note>> getAllNotes() {\n        return allNotes;\n    }\n\n    public Flowable<List<Note>> getAllNotesOrderByTitle() {\n        return allNotesOrderByTitle;\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/kcirque/dailynotes/database/viewmodel/NoteViewModel.java b/app/src/main/java/com/kcirque/dailynotes/database/viewmodel/NoteViewModel.java
+--- a/app/src/main/java/com/kcirque/dailynotes/database/viewmodel/NoteViewModel.java	(revision 61dc1546f0081bf150173f1093c429ea908c399c)
++++ b/app/src/main/java/com/kcirque/dailynotes/database/viewmodel/NoteViewModel.java	(date 1652282831182)
+@@ -1,8 +1,8 @@
+ package com.kcirque.dailynotes.database.viewmodel;
+ 
+ import android.app.Application;
+-import android.arch.lifecycle.AndroidViewModel;
+-import android.support.annotation.NonNull;
++import androidx.lifecycle.AndroidViewModel;
++import androidx.annotation.NonNull;
+ 
+ import com.kcirque.dailynotes.database.model.Note;
+ import com.kcirque.dailynotes.database.repository.NoteRepository;
+Index: app/src/main/java/com/kcirque/dailynotes/database/dao/NoteDao.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.kcirque.dailynotes.database.dao;\n\nimport android.arch.persistence.room.Dao;\nimport android.arch.persistence.room.Delete;\nimport android.arch.persistence.room.Insert;\nimport android.arch.persistence.room.Query;\nimport android.arch.persistence.room.Update;\n\nimport com.kcirque.dailynotes.database.model.Note;\n\nimport java.util.List;\n\nimport io.reactivex.Flowable;\n\n@Dao\npublic interface NoteDao {\n    @Insert\n    void insertNote(Note note);\n\n    @Update\n    void updateNote(Note note);\n\n    @Delete\n    void deleteNote(Note note);\n\n    @Query(\"DELETE FROM note\")\n    void deleteAllNotes();\n\n    @Query(\"SELECT * FROM note ORDER BY date_time DESC\")\n    Flowable<List<Note>> getAllNotes();\n\n    @Query(\"SELECT * FROM note ORDER BY title ASC\")\n    Flowable<List<Note>> getAllNotesOrderByTitle();\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/kcirque/dailynotes/database/dao/NoteDao.java b/app/src/main/java/com/kcirque/dailynotes/database/dao/NoteDao.java
+--- a/app/src/main/java/com/kcirque/dailynotes/database/dao/NoteDao.java	(revision 61dc1546f0081bf150173f1093c429ea908c399c)
++++ b/app/src/main/java/com/kcirque/dailynotes/database/dao/NoteDao.java	(date 1652282831195)
+@@ -1,10 +1,10 @@
+ package com.kcirque.dailynotes.database.dao;
+ 
+-import android.arch.persistence.room.Dao;
+-import android.arch.persistence.room.Delete;
+-import android.arch.persistence.room.Insert;
+-import android.arch.persistence.room.Query;
+-import android.arch.persistence.room.Update;
++import androidx.room.Dao;
++import androidx.room.Delete;
++import androidx.room.Insert;
++import androidx.room.Query;
++import androidx.room.Update;
+ 
+ import com.kcirque.dailynotes.database.model.Note;
+ 
+Index: app/src/main/java/com/kcirque/dailynotes/database/model/Note.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.kcirque.dailynotes.database.model;\n\nimport android.arch.persistence.room.ColumnInfo;\nimport android.arch.persistence.room.Entity;\nimport android.arch.persistence.room.PrimaryKey;\n\nimport java.io.Serializable;\n\n@Entity\npublic class Note implements Serializable {\n    @ColumnInfo(name = \"id\")\n    @PrimaryKey(autoGenerate = true)\n    private int id;\n    @ColumnInfo(name = \"title\")\n    private String title;\n    @ColumnInfo(name = \"description\")\n    private String description;\n    @ColumnInfo(name = \"date_time\")\n    private long dataTime;\n    @ColumnInfo(name = \"is_lock\")\n    private boolean isLock;\n\n    public Note(String title, String description, long dataTime, boolean isLock) {\n        this.title = title;\n        this.description = description;\n        this.dataTime = dataTime;\n        this.isLock = isLock;\n    }\n\n    public int getId() {\n        return id;\n    }\n\n    public void setId(int id) {\n        this.id = id;\n    }\n\n    public void setTitle(String title) {\n        this.title = title;\n    }\n\n    public void setDescription(String description) {\n        this.description = description;\n    }\n\n    public void setDataTime(long dataTime) {\n        this.dataTime = dataTime;\n    }\n\n    public String getTitle() {\n        return title;\n    }\n\n    public String getDescription() {\n        return description;\n    }\n\n    public long getDataTime() {\n        return dataTime;\n    }\n\n    public boolean isLock() {\n        return isLock;\n    }\n\n    public void setLock(boolean lock) {\n        isLock = lock;\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/kcirque/dailynotes/database/model/Note.java b/app/src/main/java/com/kcirque/dailynotes/database/model/Note.java
+--- a/app/src/main/java/com/kcirque/dailynotes/database/model/Note.java	(revision 61dc1546f0081bf150173f1093c429ea908c399c)
++++ b/app/src/main/java/com/kcirque/dailynotes/database/model/Note.java	(date 1652282831217)
+@@ -1,8 +1,8 @@
+ package com.kcirque.dailynotes.database.model;
+ 
+-import android.arch.persistence.room.ColumnInfo;
+-import android.arch.persistence.room.Entity;
+-import android.arch.persistence.room.PrimaryKey;
++import androidx.room.ColumnInfo;
++import androidx.room.Entity;
++import androidx.room.PrimaryKey;
+ 
+ import java.io.Serializable;
+ 
+Index: app/src/main/res/menu/popup_menu.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/menu/popup_menu.xml b/app/src/main/res/menu/popup_menu.xml
+new file mode 100644
+--- /dev/null	(date 1554791816000)
++++ b/app/src/main/res/menu/popup_menu.xml	(date 1554791816000)
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="utf-8"?>
++<menu xmlns:android="http://schemas.android.com/apk/res/android">
++    <item
++        android:id="@+id/action_edit"
++        android:title="@string/edit" />
++    <item
++        android:id="@+id/action_delete"
++        android:title="@string/delete" />
++</menu>
+\ No newline at end of file
+Index: app/src/main/res/layout/lock_note_dialog.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<android.support.v7.widget.CardView xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n    xmlns:tools=\"http://schemas.android.com/tools\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    app:cardElevation=\"10dp\">\n\n    <LinearLayout\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"\n        android:background=\"@android:color/white\"\n        android:orientation=\"vertical\"\n        android:padding=\"20dp\">\n\n\n        <EditText\n            android:id=\"@+id/old_pin_edit_text\"\n            android:layout_width=\"match_parent\"\n            android:layout_height=\"wrap_content\"\n            android:layout_margin=\"5dp\"\n            android:hint=\"@string/old_pin\"\n            android:inputType=\"numberPassword\"\n            android:paddingLeft=\"10dp\"\n            android:textColor=\"@color/textColor\"\n            android:textColorHint=\"@android:color/darker_gray\"\n            android:textSize=\"20sp\"\n            android:visibility=\"gone\" />\n\n\n        <EditText\n            android:id=\"@+id/new_pin_edit_text\"\n            android:layout_width=\"match_parent\"\n            android:layout_height=\"wrap_content\"\n            android:layout_margin=\"5dp\"\n            android:hint=\"@string/master_pin\"\n            android:inputType=\"numberPassword\"\n            android:padding=\"10dp\"\n            android:textColor=\"@color/textColor\"\n            android:textColorHint=\"@android:color/darker_gray\"\n            android:textSize=\"20sp\" />\n\n\n        <EditText\n            android:id=\"@+id/confirm_pin_edit_text\"\n            android:layout_width=\"match_parent\"\n            android:layout_height=\"wrap_content\"\n            android:layout_margin=\"5dp\"\n            android:hint=\"@string/re_master_pin\"\n            android:inputType=\"numberPassword\"\n            android:padding=\"10dp\"\n            android:textColor=\"@color/textColor\"\n            android:textColorHint=\"@android:color/darker_gray\"\n            android:textSize=\"20sp\" />\n\n    </LinearLayout>\n</android.support.v7.widget.CardView>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/lock_note_dialog.xml b/app/src/main/res/layout/lock_note_dialog.xml
+--- a/app/src/main/res/layout/lock_note_dialog.xml	(revision 61dc1546f0081bf150173f1093c429ea908c399c)
++++ b/app/src/main/res/layout/lock_note_dialog.xml	(date 1652282831158)
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
++<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+@@ -54,4 +54,4 @@
+             android:textSize="20sp" />
+ 
+     </LinearLayout>
+-</android.support.v7.widget.CardView>
+\ No newline at end of file
++</androidx.cardview.widget.CardView>
+\ No newline at end of file
+Index: app/src/main/res/layout/login_dialog.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<android.support.v7.widget.CardView xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"wrap_content\"\n    android:layout_margin=\"20dp\"\n    android:background=\"@android:color/white\"\n    app:cardElevation=\"10dp\">\n\n    <LinearLayout\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"\n        android:background=\"@android:color/white\"\n        android:padding=\"20dp\">\n\n        <EditText\n            android:id=\"@+id/pin_edit_text\"\n            android:layout_width=\"match_parent\"\n            android:layout_height=\"wrap_content\"\n            android:layout_margin=\"5dp\"\n            android:hint=\"@string/enter_pin\"\n            android:inputType=\"numberPassword\"\n            android:paddingLeft=\"10dp\"\n            android:textColor=\"@color/textColor\"\n            android:textColorHint=\"@android:color/darker_gray\"\n            android:textSize=\"20sp\" />\n    </LinearLayout>\n</android.support.v7.widget.CardView>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/login_dialog.xml b/app/src/main/res/layout/login_dialog.xml
+--- a/app/src/main/res/layout/login_dialog.xml	(revision 61dc1546f0081bf150173f1093c429ea908c399c)
++++ b/app/src/main/res/layout/login_dialog.xml	(date 1652282831161)
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
++<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+@@ -25,4 +25,4 @@
+             android:textColorHint="@android:color/darker_gray"
+             android:textSize="20sp" />
+     </LinearLayout>
+-</android.support.v7.widget.CardView>
+\ No newline at end of file
++</androidx.cardview.widget.CardView>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_main.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<RelativeLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n    xmlns:tools=\"http://schemas.android.com/tools\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    tools:context=\".MainActivity\">\n\n    <android.support.v7.widget.RecyclerView\n        android:id=\"@+id/note_list_recycler_view\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"match_parent\" />\n\n    <TextView\n        android:id=\"@+id/no_notes_text_view\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:visibility=\"gone\"\n        android:layout_centerInParent=\"true\"\n        android:text=\"@string/create_note_text\"\n        android:textAppearance=\"@style/TextAppearance.AppCompat.Headline\" />\n\n    <android.support.design.widget.FloatingActionButton\n        android:id=\"@+id/add_note_fab\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:layout_alignParentEnd=\"true\"\n        android:layout_alignParentRight=\"true\"\n        android:layout_alignParentBottom=\"true\"\n        android:layout_margin=\"16dp\"\n        android:src=\"@drawable/ic_add_white\"\n        app:fabSize=\"auto\" />\n</RelativeLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_main.xml b/app/src/main/res/layout/activity_main.xml
+--- a/app/src/main/res/layout/activity_main.xml	(revision 61dc1546f0081bf150173f1093c429ea908c399c)
++++ b/app/src/main/res/layout/activity_main.xml	(date 1652282831247)
+@@ -4,30 +4,40 @@
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    tools:context=".MainActivity">
++    tools:context=".activity.MainActivity">
+ 
+-    <android.support.v7.widget.RecyclerView
++    <androidx.recyclerview.widget.RecyclerView
+         android:id="@+id/note_list_recycler_view"
+         android:layout_width="match_parent"
+-        android:layout_height="match_parent" />
++        android:layout_height="match_parent"
++        tools:listitem="@layout/note_list_item" />
+ 
+     <TextView
+         android:id="@+id/no_notes_text_view"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+-        android:visibility="gone"
+         android:layout_centerInParent="true"
+         android:text="@string/create_note_text"
+-        android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
++        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
++        android:visibility="gone" />
+ 
+-    <android.support.design.widget.FloatingActionButton
++    <com.google.android.material.floatingactionbutton.FloatingActionButton
+         android:id="@+id/add_note_fab"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
++        android:layout_above="@id/adView"
+         android:layout_alignParentEnd="true"
+         android:layout_alignParentRight="true"
+-        android:layout_alignParentBottom="true"
+         android:layout_margin="16dp"
+         android:src="@drawable/ic_add_white"
+         app:fabSize="auto" />
++
++    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
++        android:id="@+id/adView"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_alignParentBottom="true"
++        android:layout_centerHorizontal="true"
++        ads:adSize="BANNER"
++        ads:adUnitId="@string/banner_unit_id" />
+ </RelativeLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/kcirque/dailynotes/adapter/NotesAdapter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.kcirque.dailynotes.adapter;\n\nimport android.content.Context;\nimport android.content.res.TypedArray;\nimport android.graphics.Color;\nimport android.support.v7.widget.RecyclerView;\nimport android.view.LayoutInflater;\nimport android.view.View;\nimport android.view.ViewGroup;\nimport android.widget.Filter;\nimport android.widget.Filterable;\nimport android.widget.ImageView;\nimport android.widget.TextView;\n\nimport com.kcirque.dailynotes.R;\nimport com.kcirque.dailynotes.database.model.Note;\n\nimport java.text.SimpleDateFormat;\nimport java.util.ArrayList;\nimport java.util.Date;\nimport java.util.List;\n\n\npublic class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.MyViewHolder> implements Filterable {\n\n    public static final int LIST_VIEW = 1;\n    public static final int GRID_VIEW = 2;\n    private Context context;\n    private List<Note> filteredNotes = new ArrayList<>();\n    private List<Note> allNotes = new ArrayList<>();\n    private int type;\n\n    @Override\n    public Filter getFilter() {\n        return new Filter() {\n            @Override\n            protected FilterResults performFiltering(CharSequence constraint) {\n                String query = constraint.toString();\n                List<Note> tempList = new ArrayList<>();\n                if (query.isEmpty()) {\n                    filteredNotes = allNotes;\n                } else {\n                    for (Note note : allNotes) {\n                        if (note.getDescription().toLowerCase().contains(query.toLowerCase())) {\n                            tempList.add(note);\n                        }\n                    }\n                    filteredNotes = tempList;\n                }\n                FilterResults filterResults = new FilterResults();\n                filterResults.values = filteredNotes;\n                return filterResults;\n            }\n\n            @Override\n            protected void publishResults(CharSequence constraint, FilterResults results) {\n                filteredNotes = (List<Note>) results.values;\n                notifyDataSetChanged();\n            }\n        };\n    }\n\n    public class MyViewHolder extends RecyclerView.ViewHolder {\n\n        TextView note;\n        TextView dot;\n        TextView timestamp;\n        ImageView isLockImageView;\n\n        public MyViewHolder(View view) {\n            super(view);\n            note = view.findViewById(R.id.note_title_text_view);\n            dot = view.findViewById(R.id.divider);\n            timestamp = view.findViewById(R.id.note_create_time_text_view);\n            isLockImageView = view.findViewById(R.id.lock_image_view);\n\n        }\n    }\n\n\n    public NotesAdapter(Context context, int type) {\n        this.context = context;\n        this.type = type;\n    }\n\n    public void setNotesList(List<Note> notesList) {\n        this.filteredNotes = notesList;\n        this.allNotes = notesList;\n        notifyDataSetChanged();\n    }\n\n    @Override\n    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {\n        View itemView;\n        if (type == LIST_VIEW) {\n            itemView = LayoutInflater.from(parent.getContext())\n                    .inflate(R.layout.note_list_item, parent, false);\n        } else {\n            itemView = LayoutInflater.from(parent.getContext())\n                    .inflate(R.layout.note_grid_item, parent, false);\n        }\n        return new MyViewHolder(itemView);\n    }\n\n    @Override\n    public void onBindViewHolder(MyViewHolder holder, int position) {\n        Note note = filteredNotes.get(position);\n        if (type == LIST_VIEW) {\n            holder.note.setText(note.getTitle());\n        } else {\n            holder.note.setText(note.getDescription());\n        }\n        holder.itemView.setBackgroundColor(getRandomMaterialColor(\"400\"));\n        // Changing dot color to random color\n        holder.dot.setBackgroundColor(getRandomMaterialColor(\"500\"));\n\n        // Formatting and displaying timestamp\n        holder.timestamp.setText(formatDate(note.getDataTime()));\n        if (note.isLock()) {\n            holder.isLockImageView.setVisibility(View.VISIBLE);\n        } else {\n            holder.isLockImageView.setVisibility(View.GONE);\n        }\n    }\n\n    @Override\n    public int getItemCount() {\n        return filteredNotes.size();\n    }\n\n    /**\n     * Chooses random color defined in res/array.xml\n     */\n    private int getRandomMaterialColor(String typeColor) {\n        int returnColor = Color.GRAY;\n        int arrayId = context.getResources().getIdentifier(\"mdcolor_\" + typeColor, \"array\", context.getPackageName());\n\n        if (arrayId != 0) {\n            TypedArray colors = context.getResources().obtainTypedArray(arrayId);\n            int index = (int) (Math.random() * colors.length());\n            returnColor = colors.getColor(index, Color.GRAY);\n            colors.recycle();\n        }\n        return returnColor;\n    }\n\n    /**\n     * Formatting timestamp to `MMM d` format\n     * Input: 2018-02-21 00:15:42\n     * Output: Feb 21\n     */\n    private String formatDate(long timstamp) {\n        Date date = new Date(timstamp);\n        SimpleDateFormat fmtOut = new SimpleDateFormat(\"MMM dd\");\n        return fmtOut.format(date);\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/kcirque/dailynotes/adapter/NotesAdapter.java b/app/src/main/java/com/kcirque/dailynotes/adapter/NotesAdapter.java
+--- a/app/src/main/java/com/kcirque/dailynotes/adapter/NotesAdapter.java	(revision 61dc1546f0081bf150173f1093c429ea908c399c)
++++ b/app/src/main/java/com/kcirque/dailynotes/adapter/NotesAdapter.java	(date 1652282831170)
+@@ -3,7 +3,8 @@
+ import android.content.Context;
+ import android.content.res.TypedArray;
+ import android.graphics.Color;
+-import android.support.v7.widget.RecyclerView;
++import androidx.annotation.NonNull;
++import androidx.recyclerview.widget.RecyclerView;
+ import android.view.LayoutInflater;
+ import android.view.View;
+ import android.view.ViewGroup;
+@@ -19,6 +20,9 @@
+ import java.util.ArrayList;
+ import java.util.Date;
+ import java.util.List;
++import java.util.Locale;
++
++import de.hdodenhof.circleimageview.CircleImageView;
+ 
+ 
+ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.MyViewHolder> implements Filterable {
+@@ -41,7 +45,8 @@
+                     filteredNotes = allNotes;
+                 } else {
+                     for (Note note : allNotes) {
+-                        if (note.getDescription().toLowerCase().contains(query.toLowerCase())) {
++                        if (note.getDescription().toLowerCase().contains(query.toLowerCase()) ||
++                                note.getTitle().toLowerCase().contains(query.toLowerCase())) {
+                             tempList.add(note);
+                         }
+                     }
+@@ -62,14 +67,15 @@
+ 
+     public class MyViewHolder extends RecyclerView.ViewHolder {
+ 
+-        TextView note;
+-        TextView dot;
++        TextView note, title;
++        CircleImageView dot;
+         TextView timestamp;
+         ImageView isLockImageView;
+ 
+         public MyViewHolder(View view) {
+             super(view);
+-            note = view.findViewById(R.id.note_title_text_view);
++            note = view.findViewById(R.id.note_text_view);
++            title = view.findViewById(R.id.note_title_text_view);
+             dot = view.findViewById(R.id.divider);
+             timestamp = view.findViewById(R.id.note_create_time_text_view);
+             isLockImageView = view.findViewById(R.id.lock_image_view);
+@@ -89,8 +95,9 @@
+         notifyDataSetChanged();
+     }
+ 
++    @NonNull
+     @Override
+-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
++    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+         View itemView;
+         if (type == LIST_VIEW) {
+             itemView = LayoutInflater.from(parent.getContext())
+@@ -103,17 +110,16 @@
+     }
+ 
+     @Override
+-    public void onBindViewHolder(MyViewHolder holder, int position) {
++    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+         Note note = filteredNotes.get(position);
+-        if (type == LIST_VIEW) {
+-            holder.note.setText(note.getTitle());
+-        } else {
+-            holder.note.setText(note.getDescription());
+-        }
++
++        holder.title.setText(note.getTitle());
++        holder.note.setText(note.getDescription());
+         holder.itemView.setBackgroundColor(getRandomMaterialColor("400"));
+         // Changing dot color to random color
+-        holder.dot.setBackgroundColor(getRandomMaterialColor("500"));
+-
++       // holder.dot.setBackgroundColor(getRandomMaterialColor("500"));
++        //Glide.with(context).load(null).into(holder.dot);
++        holder.dot.setColorFilter(getRandomMaterialColor("500"));
+         // Formatting and displaying timestamp
+         holder.timestamp.setText(formatDate(note.getDataTime()));
+         if (note.isLock()) {
+@@ -149,9 +155,9 @@
+      * Input: 2018-02-21 00:15:42
+      * Output: Feb 21
+      */
+-    private String formatDate(long timstamp) {
+-        Date date = new Date(timstamp);
+-        SimpleDateFormat fmtOut = new SimpleDateFormat("MMM dd");
++    private String formatDate(long timestamp) {
++        Date date = new Date(timestamp);
++        SimpleDateFormat fmtOut = new SimpleDateFormat("MMM dd", Locale.US);
+         return fmtOut.format(date);
+     }
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/kcirque/dailynotes/utils/MyDividerItemDecoration.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.kcirque.dailynotes.utils;\nimport android.content.Context;\nimport android.content.res.Resources;\nimport android.content.res.TypedArray;\nimport android.graphics.Canvas;\nimport android.graphics.Rect;\nimport android.graphics.drawable.Drawable;\nimport android.support.v7.widget.LinearLayoutManager;\nimport android.support.v7.widget.RecyclerView;\nimport android.util.TypedValue;\nimport android.view.View;\n\npublic class MyDividerItemDecoration extends RecyclerView.ItemDecoration {\n\n    private static final int[] ATTRS = new int[]{\n            android.R.attr.listDivider\n    };\n\n    public static final int HORIZONTAL_LIST = LinearLayoutManager.HORIZONTAL;\n    public static final int VERTICAL_LIST = LinearLayoutManager.VERTICAL;\n\n    private Drawable mDivider;\n    private int mOrientation;\n    private Context context;\n    private int margin;\n\n    public MyDividerItemDecoration(Context context, int orientation, int margin) {\n        this.context = context;\n        this.margin = margin;\n        final TypedArray a = context.obtainStyledAttributes(ATTRS);\n        mDivider = a.getDrawable(0);\n        a.recycle();\n        setOrientation(orientation);\n    }\n\n    public void setOrientation(int orientation) {\n        if (orientation != HORIZONTAL_LIST && orientation != VERTICAL_LIST) {\n            throw new IllegalArgumentException(\"invalid orientation\");\n        }\n        mOrientation = orientation;\n    }\n\n    @Override\n    public void onDrawOver(Canvas c, RecyclerView parent, RecyclerView.State state) {\n        if (mOrientation == VERTICAL_LIST) {\n            drawVertical(c, parent);\n        } else {\n            drawHorizontal(c, parent);\n        }\n    }\n\n    public void drawVertical(Canvas c, RecyclerView parent) {\n        final int left = parent.getPaddingLeft();\n        final int right = parent.getWidth() - parent.getPaddingRight();\n\n        final int childCount = parent.getChildCount();\n        for (int i = 0; i < childCount; i++) {\n            final View child = parent.getChildAt(i);\n            final RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child\n                    .getLayoutParams();\n            final int top = child.getBottom() + params.bottomMargin;\n            final int bottom = top + mDivider.getIntrinsicHeight();\n            mDivider.setBounds(left + dpToPx(margin), top, right - dpToPx(margin), bottom);\n            mDivider.draw(c);\n        }\n    }\n\n    public void drawHorizontal(Canvas c, RecyclerView parent) {\n        final int top = parent.getPaddingTop();\n        final int bottom = parent.getHeight() - parent.getPaddingBottom();\n\n        final int childCount = parent.getChildCount();\n        for (int i = 0; i < childCount; i++) {\n            final View child = parent.getChildAt(i);\n            final RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child\n                    .getLayoutParams();\n            final int left = child.getRight() + params.rightMargin;\n            final int right = left + mDivider.getIntrinsicHeight();\n            mDivider.setBounds(left, top + dpToPx(margin), right, bottom - dpToPx(margin));\n            mDivider.draw(c);\n        }\n    }\n\n    @Override\n    public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {\n        if (mOrientation == VERTICAL_LIST) {\n            outRect.set(0, 0, 0, mDivider.getIntrinsicHeight());\n        } else {\n            outRect.set(0, 0, mDivider.getIntrinsicWidth(), 0);\n        }\n    }\n\n    private int dpToPx(int dp) {\n        Resources r = context.getResources();\n        return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics()));\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/kcirque/dailynotes/utils/MyDividerItemDecoration.java b/app/src/main/java/com/kcirque/dailynotes/utils/MyDividerItemDecoration.java
+--- a/app/src/main/java/com/kcirque/dailynotes/utils/MyDividerItemDecoration.java	(revision 61dc1546f0081bf150173f1093c429ea908c399c)
++++ b/app/src/main/java/com/kcirque/dailynotes/utils/MyDividerItemDecoration.java	(date 1652282831225)
+@@ -5,8 +5,8 @@
+ import android.graphics.Canvas;
+ import android.graphics.Rect;
+ import android.graphics.drawable.Drawable;
+-import android.support.v7.widget.LinearLayoutManager;
+-import android.support.v7.widget.RecyclerView;
++import androidx.recyclerview.widget.LinearLayoutManager;
++import androidx.recyclerview.widget.RecyclerView;
+ import android.util.TypedValue;
+ import android.view.View;
+ 
+Index: app/src/main/java/com/kcirque/dailynotes/utils/RecyclerTouchListener.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.kcirque.dailynotes.utils;\n\nimport android.content.Context;\nimport android.support.v7.widget.RecyclerView;\nimport android.view.GestureDetector;\nimport android.view.MotionEvent;\nimport android.view.View;\n\npublic class RecyclerTouchListener implements RecyclerView.OnItemTouchListener {\n\n    private ClickListener clicklistener;\n    private GestureDetector gestureDetector;\n\n    public RecyclerTouchListener(Context context, final RecyclerView recycleView, final ClickListener clicklistener) {\n\n        this.clicklistener = clicklistener;\n        gestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {\n            @Override\n            public boolean onSingleTapUp(MotionEvent e) {\n                return true;\n            }\n\n            @Override\n            public void onLongPress(MotionEvent e) {\n                View child = recycleView.findChildViewUnder(e.getX(), e.getY());\n                if (child != null && clicklistener != null) {\n                    clicklistener.onLongClick(child, recycleView.getChildAdapterPosition(child));\n                }\n            }\n        });\n    }\n\n    @Override\n    public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {\n        View child = rv.findChildViewUnder(e.getX(), e.getY());\n        if (child != null && clicklistener != null && gestureDetector.onTouchEvent(e)) {\n            clicklistener.onClick(child, rv.getChildAdapterPosition(child));\n        }\n        return false;\n    }\n\n    @Override\n    public void onTouchEvent(RecyclerView rv, MotionEvent e) {\n    }\n\n    @Override\n    public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {\n    }\n\n    public interface ClickListener {\n        void onClick(View view, int position);\n\n        void onLongClick(View view, int position);\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/kcirque/dailynotes/utils/RecyclerTouchListener.java b/app/src/main/java/com/kcirque/dailynotes/utils/RecyclerTouchListener.java
+--- a/app/src/main/java/com/kcirque/dailynotes/utils/RecyclerTouchListener.java	(revision 61dc1546f0081bf150173f1093c429ea908c399c)
++++ b/app/src/main/java/com/kcirque/dailynotes/utils/RecyclerTouchListener.java	(date 1652282831148)
+@@ -1,7 +1,7 @@
+ package com.kcirque.dailynotes.utils;
+ 
+ import android.content.Context;
+-import android.support.v7.widget.RecyclerView;
++import androidx.recyclerview.widget.RecyclerView;
+ import android.view.GestureDetector;
+ import android.view.MotionEvent;
+ import android.view.View;
+Index: gradle.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># Project-wide Gradle settings.\n# IDE (e.g. Android Studio) users:\n# Gradle settings configured through the IDE *will override*\n# any settings specified in this file.\n# For more details on how to configure your build environment visit\n# http://www.gradle.org/docs/current/userguide/build_environment.html\n# Specifies the JVM arguments used for the daemon process.\n# The setting is particularly useful for tweaking memory settings.\norg.gradle.jvmargs=-Xmx1536m\n# When configured, Gradle will run in incubating parallel mode.\n# This option should only be used with decoupled projects. More details, visit\n# http://www.gradle.org/docs/current/userguide/multi_project_builds.html#sec:decoupled_projects\n# org.gradle.parallel=true\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gradle.properties b/gradle.properties
+--- a/gradle.properties	(revision 61dc1546f0081bf150173f1093c429ea908c399c)
++++ b/gradle.properties	(date 1652282831209)
+@@ -6,6 +6,8 @@
+ # http://www.gradle.org/docs/current/userguide/build_environment.html
+ # Specifies the JVM arguments used for the daemon process.
+ # The setting is particularly useful for tweaking memory settings.
++android.enableJetifier=true
++android.useAndroidX=true
+ org.gradle.jvmargs=-Xmx1536m
+ # When configured, Gradle will run in incubating parallel mode.
+ # This option should only be used with decoupled projects. More details, visit
+Index: app/src/main/res/layout-sw600dp/note_grid_item.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout-sw600dp/note_grid_item.xml b/app/src/main/res/layout-sw600dp/note_grid_item.xml
+new file mode 100644
+--- /dev/null	(date 1652282831173)
++++ b/app/src/main/res/layout-sw600dp/note_grid_item.xml	(date 1652282831173)
+@@ -0,0 +1,58 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
++    android:layout_width="match_parent"
++    android:layout_height="wrap_content">
++
++    <LinearLayout
++        android:layout_width="match_parent"
++        android:layout_height="150dp"
++        android:orientation="vertical">
++
++        <de.hdodenhof.circleimageview.CircleImageView
++            android:id="@+id/divider"
++            android:layout_width="5dp"
++            android:layout_height="match_parent"
++            android:background="@color/colorPrimary"
++            android:visibility="gone" />
++
++        <TextView
++            android:id="@+id/note_create_time_text_view"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:text="@string/note_time_demo"
++            android:textSize="22sp" />
++
++        <TextView
++            android:id="@+id/note_title_text_view"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:ellipsize="end"
++            android:maxLines="1"
++            android:padding="5dp"
++            android:text="@string/notes_title_text"
++            android:textColor="@android:color/black"
++            android:textSize="20sp" />
++
++        <TextView
++            android:id="@+id/note_text_view"
++            android:layout_width="match_parent"
++            android:layout_height="0dp"
++            android:layout_weight="1"
++            android:paddingStart="10dp"
++            android:text="@string/notes_title_text"
++            android:textColor="#D0000000"
++            android:textSize="18sp"
++            android:paddingLeft="10dp" />
++
++
++        <ImageView
++            android:id="@+id/lock_image_view"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_gravity="end"
++            android:contentDescription="@null"
++            android:padding="5dp"
++            android:src="@drawable/ic_lock_black"
++            android:visibility="gone" />
++    </LinearLayout>
++</androidx.cardview.widget.CardView>
+\ No newline at end of file
+Index: app/src/main/res/layout-sw600dp/note_list_item.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout-sw600dp/note_list_item.xml b/app/src/main/res/layout-sw600dp/note_list_item.xml
+new file mode 100644
+--- /dev/null	(date 1652283505309)
++++ b/app/src/main/res/layout-sw600dp/note_list_item.xml	(date 1652283505309)
+@@ -0,0 +1,90 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="wrap_content"
++    android:layout_margin="2dp"
++    android:clickable="true"
++    android:focusable="true"
++    android:foreground="?attr/selectableItemBackground"
++    app:cardElevation="16dp">
++
++    <RelativeLayout
++        android:layout_width="match_parent"
++        android:layout_height="120dp">
++
++        <de.hdodenhof.circleimageview.CircleImageView
++            android:id="@+id/divider"
++            android:layout_width="80dp"
++            android:layout_height="80dp"
++            android:layout_centerVertical="true"
++            android:src="@drawable/random_color"
++            tools:background="@color/colorPrimary" />
++
++        <TextView
++            android:id="@+id/note_title_text_view"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:layout_alignParentTop="true"
++            android:layout_centerVertical="true"
++            android:layout_toStartOf="@id/lock_image_view"
++            android:layout_toLeftOf="@id/lock_image_view"
++            android:layout_toEndOf="@id/divider"
++            android:layout_toRightOf="@id/divider"
++            android:ellipsize="end"
++            android:gravity="center_vertical"
++            android:maxLines="1"
++            android:paddingStart="20dp"
++            android:paddingLeft="20dp"
++            android:paddingTop="5dp"
++            android:text="@string/notes_title_text"
++            android:textColor="@android:color/black"
++            android:textSize="28sp" />
++
++        <TextView
++            android:id="@+id/note_text_view"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:layout_below="@id/note_title_text_view"
++            android:layout_centerVertical="true"
++            android:layout_toStartOf="@id/lock_image_view"
++            android:layout_toLeftOf="@id/lock_image_view"
++            android:layout_toEndOf="@id/divider"
++            android:layout_toRightOf="@id/divider"
++            android:ellipsize="end"
++            android:gravity="center_vertical"
++            android:maxLines="2"
++            android:paddingStart="30dp"
++            android:paddingLeft="30dp"
++            android:text="@string/notes_title_text"
++            android:textColor="#D0000000"
++            android:textSize="24sp" />
++
++        <ImageView
++            android:id="@+id/lock_image_view"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_centerVertical="true"
++            android:layout_gravity="center_vertical"
++            android:layout_toStartOf="@id/note_create_time_text_view"
++            android:layout_toLeftOf="@id/note_create_time_text_view"
++            android:contentDescription="@null"
++            android:padding="5dp"
++            android:src="@drawable/ic_lock_black"
++            android:visibility="gone" />
++
++        <TextView
++            android:id="@+id/note_create_time_text_view"
++            android:layout_width="wrap_content"
++            android:layout_height="match_parent"
++            android:layout_alignParentEnd="true"
++            android:layout_alignParentRight="true"
++            android:gravity="center_vertical"
++            android:padding="5dp"
++            android:text="@string/note_time_demo"
++            android:textSize="18sp" />
++    </RelativeLayout>
++
++
++</androidx.cardview.widget.CardView>
+\ No newline at end of file
+Index: app/src/main/res/layout-sw600dp/login_dialog.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout-sw600dp/login_dialog.xml b/app/src/main/res/layout-sw600dp/login_dialog.xml
+new file mode 100644
+--- /dev/null	(date 1652282831192)
++++ b/app/src/main/res/layout-sw600dp/login_dialog.xml	(date 1652282831192)
+@@ -0,0 +1,28 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    android:layout_width="match_parent"
++    android:layout_height="wrap_content"
++    android:layout_margin="20dp"
++    android:background="@android:color/white"
++    app:cardElevation="10dp">
++
++    <LinearLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:background="@android:color/white"
++        android:padding="20dp">
++
++        <EditText
++            android:id="@+id/pin_edit_text"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:layout_margin="5dp"
++            android:hint="@string/enter_pin"
++            android:inputType="numberPassword"
++            android:paddingLeft="10dp"
++            android:textColor="@color/textColor"
++            android:textColorHint="@android:color/darker_gray"
++            android:textSize="22sp" />
++    </LinearLayout>
++</androidx.cardview.widget.CardView>
+\ No newline at end of file
+Index: app/src/main/java/com/kcirque/dailynotes/SettingsActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/kcirque/dailynotes/SettingsActivity.java b/app/src/main/java/com/kcirque/dailynotes/activity/SettingsActivity.java
+rename from app/src/main/java/com/kcirque/dailynotes/SettingsActivity.java
+rename to app/src/main/java/com/kcirque/dailynotes/activity/SettingsActivity.java
+--- a/app/src/main/java/com/kcirque/dailynotes/SettingsActivity.java	(revision 61dc1546f0081bf150173f1093c429ea908c399c)
++++ b/app/src/main/java/com/kcirque/dailynotes/activity/SettingsActivity.java	(date 1550492942000)
+@@ -1,22 +1,13 @@
+-package com.kcirque.dailynotes;
++package com.kcirque.dailynotes.activity;
+ 
+-import android.app.Fragment;
+-import android.content.DialogInterface;
+ import android.content.Intent;
+-import android.content.res.Resources;
+ import android.preference.ListPreference;
+ import android.preference.Preference;
+ import android.preference.PreferenceFragment;
+-import android.support.annotation.Nullable;
+-import android.support.v7.app.AlertDialog;
+-import android.support.v7.app.AppCompatActivity;
+ import android.os.Bundle;
+-import android.view.LayoutInflater;
+ import android.view.MenuItem;
+-import android.view.View;
+-import android.widget.EditText;
+-import android.widget.Toast;
+ 
++import com.kcirque.dailynotes.R;
+ import com.kcirque.dailynotes.utils.SharedPref;
+ 
+ public class SettingsActivity extends AppCompatPreferenceActivity {
+@@ -56,7 +47,6 @@
+                     return true;
+                 }
+             });
+-
+             findPreference(getString(R.string.key_sort_by_pref)).setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                 @Override
+                 public boolean onPreferenceChange(Preference preference, Object newValue) {
+@@ -77,10 +67,6 @@
+                     return true;
+                 }
+             });
+-
+         }
+-
+-
+     }
+-
+ }
+Index: app/src/main/res/values/ic_launcher_background.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values/ic_launcher_background.xml b/app/src/main/res/values/ic_launcher_background.xml
+new file mode 100644
+--- /dev/null	(date 1556110394000)
++++ b/app/src/main/res/values/ic_launcher_background.xml	(date 1556110394000)
+@@ -0,0 +1,4 @@
++<?xml version="1.0" encoding="utf-8"?>
++<resources>
++    <color name="ic_launcher_background">#0081BE</color>
++</resources>
+\ No newline at end of file
+Index: app/src/main/res/values/styles.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><resources>\n\n    <!-- Base application theme. -->\n    <style name=\"AppTheme\" parent=\"Theme.AppCompat.Light.DarkActionBar\">\n        <!-- Customize your theme here. -->\n        <item name=\"colorPrimary\">@color/colorPrimary</item>\n        <item name=\"colorPrimaryDark\">@color/colorPrimaryDark</item>\n        <item name=\"colorAccent\">@color/colorAccent</item>\n    </style>\n\n\n    <style name=\"HintText\" parent=\"TextAppearance.Design.Hint\">\n        <item name=\"android:textColor\">#03A9F4</item>\n        <item name=\"android:textSize\">20sp</item>\n    </style>\n</resources>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values/styles.xml b/app/src/main/res/values/styles.xml
+--- a/app/src/main/res/values/styles.xml	(revision 61dc1546f0081bf150173f1093c429ea908c399c)
++++ b/app/src/main/res/values/styles.xml	(date 1554198964000)
+@@ -8,7 +8,13 @@
+         <item name="colorAccent">@color/colorAccent</item>
+     </style>
+ 
+-
++    <style name="AppTheme.Launcher">
++        <item name="android:windowBackground">@drawable/launcher_screen_with_logo</item>
++        <item name="android:windowNoTitle">true</item>
++        <item name="android:windowActionBar">false</item>
++        <item name="android:windowFullscreen">true</item>
++        <item name="android:windowContentOverlay">@null</item>
++    </style>
+     <style name="HintText" parent="TextAppearance.Design.Hint">
+         <item name="android:textColor">#03A9F4</item>
+         <item name="android:textSize">20sp</item>
+Index: app/src/main/res/layout-sw600dp/activity_main.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout-sw600dp/activity_main.xml b/app/src/main/res/layout-sw600dp/activity_main.xml
+new file mode 100644
+--- /dev/null	(date 1652282831222)
++++ b/app/src/main/res/layout-sw600dp/activity_main.xml	(date 1652282831222)
+@@ -0,0 +1,43 @@
++<?xml version="1.0" encoding="utf-8"?>
++<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    tools:context=".activity.MainActivity">
++
++    <androidx.recyclerview.widget.RecyclerView
++        android:id="@+id/note_list_recycler_view"
++        android:layout_width="match_parent"
++        android:layout_height="match_parent"
++        tools:listitem="@layout/note_list_item" />
++
++    <TextView
++        android:id="@+id/no_notes_text_view"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_centerInParent="true"
++        android:text="@string/create_note_text"
++        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
++        android:visibility="gone" />
++
++    <com.google.android.material.floatingactionbutton.FloatingActionButton
++        android:id="@+id/add_note_fab"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_above="@id/adView"
++        android:layout_alignParentEnd="true"
++        android:layout_alignParentRight="true"
++        android:layout_margin="16dp"
++        android:src="@drawable/ic_add_white"
++        app:fabSize="auto" />
++
++    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
++        android:id="@+id/adView"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_alignParentBottom="true"
++        android:layout_centerHorizontal="true"
++        ads:adSize="BANNER"
++        ads:adUnitId="@string/banner_unit_id" />
++</RelativeLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout-sw600dp/lock_note_dialog.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout-sw600dp/lock_note_dialog.xml b/app/src/main/res/layout-sw600dp/lock_note_dialog.xml
+new file mode 100644
+--- /dev/null	(date 1652282831188)
++++ b/app/src/main/res/layout-sw600dp/lock_note_dialog.xml	(date 1652282831188)
+@@ -0,0 +1,57 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    app:cardElevation="10dp">
++
++    <LinearLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:background="@android:color/white"
++        android:orientation="vertical"
++        android:padding="20dp">
++
++
++        <EditText
++            android:id="@+id/old_pin_edit_text"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:layout_margin="5dp"
++            android:hint="@string/old_pin"
++            android:inputType="numberPassword"
++            android:paddingLeft="10dp"
++            android:textColor="@color/textColor"
++            android:textColorHint="@android:color/darker_gray"
++            android:textSize="20sp"
++            android:visibility="gone" />
++
++
++        <EditText
++            android:id="@+id/new_pin_edit_text"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:layout_margin="5dp"
++            android:hint="@string/master_pin"
++            android:inputType="numberPassword"
++            android:padding="10dp"
++            android:textColor="@color/textColor"
++            android:textColorHint="@android:color/darker_gray"
++            android:textSize="22sp" />
++
++
++        <EditText
++            android:id="@+id/confirm_pin_edit_text"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:layout_margin="5dp"
++            android:hint="@string/re_master_pin"
++            android:inputType="numberPassword"
++            android:padding="10dp"
++            android:textColor="@color/textColor"
++            android:textColorHint="@android:color/darker_gray"
++            android:textSize="22sp" />
++
++    </LinearLayout>
++</androidx.cardview.widget.CardView>
+\ No newline at end of file
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/compiler.xml b/.idea/compiler.xml
+new file mode 100644
+--- /dev/null	(date 1652282801541)
++++ b/.idea/compiler.xml	(date 1652282801541)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="CompilerConfiguration">
++    <bytecodeTargetLevel target="11" />
++  </component>
++</project>
+\ No newline at end of file
+Index: app/src/main/res/layout-sw600dp/activity_add_note.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout-sw600dp/activity_add_note.xml b/app/src/main/res/layout-sw600dp/activity_add_note.xml
+new file mode 100644
+--- /dev/null	(date 1554798440000)
++++ b/app/src/main/res/layout-sw600dp/activity_add_note.xml	(date 1554798440000)
+@@ -0,0 +1,64 @@
++<?xml version="1.0" encoding="utf-8"?>
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:background="@color/colorBackgroundAddNote"
++    android:orientation="vertical"
++    tools:context=".activity.AddNoteActivity">
++
++    <LinearLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:orientation="horizontal">
++
++        <TextView
++            android:id="@+id/time_spend_text_view"
++            android:layout_width="0dp"
++            android:layout_height="wrap_content"
++            android:layout_weight="1"
++            android:padding="5dp"
++            android:text="@string/editing_note_text"
++            android:textSize="18sp" />
++
++        <TextView
++            android:id="@+id/date_text_view"
++            android:layout_width="0dp"
++            android:layout_height="wrap_content"
++            android:layout_weight="1"
++            android:gravity="end"
++            android:padding="5dp"
++            android:textSize="18sp"
++            tools:text="@string/sample_date" />
++    </LinearLayout>
++
++    <EditText
++        android:id="@+id/note_title_edit_text"
++        android:layout_width="match_parent"
++        android:layout_height="40sp"
++        android:layout_margin="3dp"
++        android:background="@drawable/rounded_border_edit_text"
++        android:gravity="start"
++        android:hint="@string/note_title"
++        android:inputType="text"
++        android:padding="5dp"
++        android:textSize="24sp" />
++
++    <EditText
++        android:id="@+id/note_edit_text"
++        android:layout_width="match_parent"
++        android:layout_height="match_parent"
++        android:layout_margin="3dp"
++        android:layout_marginTop="5dp"
++        android:autofillHints="@string/editing_note_text"
++        android:background="@drawable/rounded_border_edit_text"
++        android:clickable="true"
++        android:focusable="true"
++        android:gravity="start"
++        android:hint="@string/type_notes_here"
++        android:inputType="textMultiLine"
++        android:padding="5dp"
++        android:textAlignment="viewStart"
++        android:textSize="22sp" />
++</LinearLayout>
+Index: app/src/main/java/com/kcirque/dailynotes/ChangePinActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/kcirque/dailynotes/ChangePinActivity.java b/app/src/main/java/com/kcirque/dailynotes/activity/ChangePinActivity.java
+rename from app/src/main/java/com/kcirque/dailynotes/ChangePinActivity.java
+rename to app/src/main/java/com/kcirque/dailynotes/activity/ChangePinActivity.java
+--- a/app/src/main/java/com/kcirque/dailynotes/ChangePinActivity.java	(revision 61dc1546f0081bf150173f1093c429ea908c399c)
++++ b/app/src/main/java/com/kcirque/dailynotes/activity/ChangePinActivity.java	(date 1652282831179)
+@@ -1,6 +1,6 @@
+-package com.kcirque.dailynotes;
++package com.kcirque.dailynotes.activity;
+ 
+-import android.support.v7.app.AppCompatActivity;
++import androidx.appcompat.app.AppCompatActivity;
+ import android.os.Bundle;
+ import android.view.Menu;
+ import android.view.MenuItem;
+@@ -8,6 +8,7 @@
+ import android.widget.EditText;
+ import android.widget.Toast;
+ 
++import com.kcirque.dailynotes.R;
+ import com.kcirque.dailynotes.utils.SharedPref;
+ 
+ public class ChangePinActivity extends AppCompatActivity {
+@@ -21,8 +22,9 @@
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.lock_note_dialog);
++        if (getSupportActionBar()!=null)
+         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+-        getActionBar().setTitle("Change Pin");
++        setTitle("Change Pin");
+ 
+         oldPinEditText = findViewById(R.id.old_pin_edit_text);
+         newPinEditText = findViewById(R.id.new_pin_edit_text);
+Index: app/src/main/java/com/kcirque/dailynotes/AppCompatPreferenceActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/kcirque/dailynotes/AppCompatPreferenceActivity.java b/app/src/main/java/com/kcirque/dailynotes/activity/AppCompatPreferenceActivity.java
+rename from app/src/main/java/com/kcirque/dailynotes/AppCompatPreferenceActivity.java
+rename to app/src/main/java/com/kcirque/dailynotes/activity/AppCompatPreferenceActivity.java
+--- a/app/src/main/java/com/kcirque/dailynotes/AppCompatPreferenceActivity.java	(revision 61dc1546f0081bf150173f1093c429ea908c399c)
++++ b/app/src/main/java/com/kcirque/dailynotes/activity/AppCompatPreferenceActivity.java	(date 1652282831176)
+@@ -1,14 +1,14 @@
+-package com.kcirque.dailynotes;
++package com.kcirque.dailynotes.activity;
+ 
+-import android.support.v7.app.ActionBar;
++import androidx.appcompat.app.ActionBar;
+ import android.content.res.Configuration;
+ import android.os.Bundle;
+ import android.preference.PreferenceActivity;
+-import android.support.annotation.LayoutRes;
+-import android.support.annotation.NonNull;
+-import android.support.annotation.Nullable;
+-import android.support.v7.app.AppCompatDelegate;
+-import android.support.v7.widget.Toolbar;
++import androidx.annotation.LayoutRes;
++import androidx.annotation.NonNull;
++import androidx.annotation.Nullable;
++import androidx.appcompat.app.AppCompatDelegate;
++import androidx.appcompat.widget.Toolbar;
+ import android.view.MenuInflater;
+ import android.view.View;
+ import android.view.ViewGroup;
+@@ -37,6 +37,7 @@
+         getDelegate().setSupportActionBar(toolbar);
+     }
+ 
++    @NonNull
+     @Override
+     public MenuInflater getMenuInflater() {
+         return super.getMenuInflater();
+Index: app/src/main/res/layout-land/note_list_item.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout-land/note_list_item.xml b/app/src/main/res/layout-land/note_list_item.xml
+new file mode 100644
+--- /dev/null	(date 1652283505317)
++++ b/app/src/main/res/layout-land/note_list_item.xml	(date 1652283505317)
+@@ -0,0 +1,90 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="wrap_content"
++    android:layout_margin="2dp"
++    android:clickable="true"
++    android:focusable="true"
++    android:foreground="?attr/selectableItemBackground"
++    app:cardElevation="16dp">
++
++    <RelativeLayout
++        android:layout_width="match_parent"
++        android:layout_height="70dp">
++
++        <de.hdodenhof.circleimageview.CircleImageView
++            android:id="@+id/divider"
++            android:layout_width="50dp"
++            android:layout_height="50dp"
++            android:layout_centerVertical="true"
++            android:src="@drawable/random_color"
++            tools:background="@color/colorPrimary" />
++
++        <TextView
++            android:id="@+id/note_title_text_view"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:layout_alignParentTop="true"
++            android:layout_centerVertical="true"
++            android:layout_toStartOf="@id/lock_image_view"
++            android:layout_toLeftOf="@id/lock_image_view"
++            android:layout_toEndOf="@id/divider"
++            android:layout_toRightOf="@id/divider"
++            android:ellipsize="end"
++            android:gravity="center_vertical"
++            android:maxLines="1"
++            android:paddingTop="5dp"
++            android:paddingStart="10dp"
++            android:paddingLeft="10dp"
++            android:text="@string/notes_title_text"
++            android:textColor="@android:color/black"
++            android:textSize="22sp" />
++
++        <TextView
++            android:id="@+id/note_text_view"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:layout_below="@id/note_title_text_view"
++            android:layout_centerVertical="true"
++            android:layout_toStartOf="@id/lock_image_view"
++            android:layout_toLeftOf="@id/lock_image_view"
++            android:layout_toEndOf="@id/divider"
++            android:layout_toRightOf="@id/divider"
++            android:ellipsize="end"
++            android:gravity="center_vertical"
++            android:maxLines="2"
++            android:paddingStart="20dp"
++            android:paddingLeft="20dp"
++            android:text="@string/notes_title_text"
++            android:textColor="#D0000000"
++            android:textSize="18sp" />
++
++        <ImageView
++            android:id="@+id/lock_image_view"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_centerVertical="true"
++            android:layout_gravity="center_vertical"
++            android:layout_toStartOf="@id/note_create_time_text_view"
++            android:layout_toLeftOf="@id/note_create_time_text_view"
++            android:contentDescription="@null"
++            android:padding="5dp"
++            android:src="@drawable/ic_lock_black"
++            android:visibility="gone" />
++
++        <TextView
++            android:id="@+id/note_create_time_text_view"
++            android:layout_width="wrap_content"
++            android:layout_height="match_parent"
++            android:layout_alignParentEnd="true"
++            android:layout_alignParentRight="true"
++            android:gravity="center_vertical"
++            android:padding="5dp"
++            android:text="@string/note_time_demo"
++            android:textSize="18sp" />
++    </RelativeLayout>
++
++
++</androidx.cardview.widget.CardView>
+\ No newline at end of file
+Index: app/src/main/res/layout-land/note_grid_item.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout-land/note_grid_item.xml b/app/src/main/res/layout-land/note_grid_item.xml
+new file mode 100644
+--- /dev/null	(date 1652282831202)
++++ b/app/src/main/res/layout-land/note_grid_item.xml	(date 1652282831202)
+@@ -0,0 +1,58 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
++    android:layout_width="match_parent"
++    android:layout_height="wrap_content">
++
++    <LinearLayout
++        android:layout_width="match_parent"
++        android:layout_height="150dp"
++        android:orientation="vertical">
++
++        <de.hdodenhof.circleimageview.CircleImageView
++            android:id="@+id/divider"
++            android:layout_width="5dp"
++            android:layout_height="match_parent"
++            android:background="@color/colorPrimary"
++            android:visibility="gone" />
++
++        <TextView
++            android:id="@+id/note_create_time_text_view"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:text="@string/note_time_demo"
++            android:textSize="20sp" />
++
++        <TextView
++            android:id="@+id/note_title_text_view"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:ellipsize="end"
++            android:maxLines="1"
++            android:padding="5dp"
++            android:text="@string/notes_title_text"
++            android:textColor="@android:color/black"
++            android:textSize="18sp" />
++
++        <TextView
++            android:id="@+id/note_text_view"
++            android:layout_width="match_parent"
++            android:layout_height="0dp"
++            android:layout_weight="1"
++            android:paddingStart="10dp"
++            android:text="@string/notes_title_text"
++            android:textColor="#D0000000"
++            android:textSize="16sp"
++            android:paddingLeft="10dp" />
++
++
++        <ImageView
++            android:id="@+id/lock_image_view"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_gravity="end"
++            android:contentDescription="@null"
++            android:padding="5dp"
++            android:src="@drawable/ic_lock_black"
++            android:visibility="gone" />
++    </LinearLayout>
++</androidx.cardview.widget.CardView>
+\ No newline at end of file
+Index: app/src/main/res/layout-land/lock_note_dialog.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout-land/lock_note_dialog.xml b/app/src/main/res/layout-land/lock_note_dialog.xml
+new file mode 100644
+--- /dev/null	(date 1652282831238)
++++ b/app/src/main/res/layout-land/lock_note_dialog.xml	(date 1652282831238)
+@@ -0,0 +1,57 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    app:cardElevation="10dp">
++
++    <LinearLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:background="@android:color/white"
++        android:orientation="vertical"
++        android:padding="20dp">
++
++
++        <EditText
++            android:id="@+id/old_pin_edit_text"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:layout_margin="5dp"
++            android:hint="@string/old_pin"
++            android:inputType="numberPassword"
++            android:paddingLeft="10dp"
++            android:textColor="@color/textColor"
++            android:textColorHint="@android:color/darker_gray"
++            android:textSize="20sp"
++            android:visibility="gone" />
++
++
++        <EditText
++            android:id="@+id/new_pin_edit_text"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:layout_margin="5dp"
++            android:hint="@string/master_pin"
++            android:inputType="numberPassword"
++            android:padding="10dp"
++            android:textColor="@color/textColor"
++            android:textColorHint="@android:color/darker_gray"
++            android:textSize="20sp" />
++
++
++        <EditText
++            android:id="@+id/confirm_pin_edit_text"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:layout_margin="5dp"
++            android:hint="@string/re_master_pin"
++            android:inputType="numberPassword"
++            android:padding="10dp"
++            android:textColor="@color/textColor"
++            android:textColorHint="@android:color/darker_gray"
++            android:textSize="20sp" />
++
++    </LinearLayout>
++</androidx.cardview.widget.CardView>
+\ No newline at end of file
+Index: app/src/main/res/layout-land/login_dialog.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout-land/login_dialog.xml b/app/src/main/res/layout-land/login_dialog.xml
+new file mode 100644
+--- /dev/null	(date 1652282831151)
++++ b/app/src/main/res/layout-land/login_dialog.xml	(date 1652282831151)
+@@ -0,0 +1,28 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    android:layout_width="match_parent"
++    android:layout_height="wrap_content"
++    android:layout_margin="20dp"
++    android:background="@android:color/white"
++    app:cardElevation="10dp">
++
++    <LinearLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:background="@android:color/white"
++        android:padding="20dp">
++
++        <EditText
++            android:id="@+id/pin_edit_text"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:layout_margin="5dp"
++            android:hint="@string/enter_pin"
++            android:inputType="numberPassword"
++            android:paddingLeft="10dp"
++            android:textColor="@color/textColor"
++            android:textColorHint="@android:color/darker_gray"
++            android:textSize="20sp" />
++    </LinearLayout>
++</androidx.cardview.widget.CardView>
+\ No newline at end of file
+Index: app/src/main/res/layout-land/activity_main.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout-land/activity_main.xml b/app/src/main/res/layout-land/activity_main.xml
+new file mode 100644
+--- /dev/null	(date 1652282831185)
++++ b/app/src/main/res/layout-land/activity_main.xml	(date 1652282831185)
+@@ -0,0 +1,43 @@
++<?xml version="1.0" encoding="utf-8"?>
++<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    tools:context=".activity.MainActivity">
++
++    <androidx.recyclerview.widget.RecyclerView
++        android:id="@+id/note_list_recycler_view"
++        android:layout_width="match_parent"
++        android:layout_height="match_parent"
++        tools:listitem="@layout/note_list_item" />
++
++    <TextView
++        android:id="@+id/no_notes_text_view"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_centerInParent="true"
++        android:text="@string/create_note_text"
++        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
++        android:visibility="gone" />
++
++    <com.google.android.material.floatingactionbutton.FloatingActionButton
++        android:id="@+id/add_note_fab"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_above="@id/adView"
++        android:layout_alignParentEnd="true"
++        android:layout_alignParentRight="true"
++        android:layout_margin="16dp"
++        android:src="@drawable/ic_add_white"
++        app:fabSize="auto" />
++
++    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
++        android:id="@+id/adView"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_alignParentBottom="true"
++        android:layout_centerHorizontal="true"
++        ads:adSize="BANNER"
++        ads:adUnitId="@string/banner_unit_id" />
++</RelativeLayout>
+\ No newline at end of file
+Index: app/google-services.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/google-services.json b/app/google-services.json
+new file mode 100644
+--- /dev/null	(date 1556187828000)
++++ b/app/google-services.json	(date 1556187828000)
+@@ -0,0 +1,429 @@
++{
++  "project_info": {
++    "project_number": "1068612922494",
++    "firebase_url": "https://k-cirque-apps.firebaseio.com",
++    "project_id": "k-cirque-apps",
++    "storage_bucket": "k-cirque-apps.appspot.com"
++  },
++  "client": [
++    {
++      "client_info": {
++        "mobilesdk_app_id": "1:1068612922494:android:4dd0c55e3a82b2f0",
++        "android_client_info": {
++          "package_name": "com.kcirque.dailynotes"
++        }
++      },
++      "oauth_client": [
++        {
++          "client_id": "1068612922494-b3910ou6ng397gsbio77m16o0t1uj996.apps.googleusercontent.com",
++          "client_type": 3
++        }
++      ],
++      "api_key": [
++        {
++          "current_key": "AIzaSyD9qej_OXbcTsZwdIanoRDJz32RrNyLXwA"
++        }
++      ],
++      "services": {
++        "appinvite_service": {
++          "other_platform_oauth_client": [
++            {
++              "client_id": "1068612922494-b3910ou6ng397gsbio77m16o0t1uj996.apps.googleusercontent.com",
++              "client_type": 3
++            }
++          ]
++        }
++      }
++    },
++    {
++      "client_info": {
++        "mobilesdk_app_id": "1:1068612922494:android:5e1b95e1159a7bc5",
++        "android_client_info": {
++          "package_name": "com.kcirque.pdfreader"
++        }
++      },
++      "oauth_client": [
++        {
++          "client_id": "1068612922494-b3910ou6ng397gsbio77m16o0t1uj996.apps.googleusercontent.com",
++          "client_type": 3
++        }
++      ],
++      "api_key": [
++        {
++          "current_key": "AIzaSyD9qej_OXbcTsZwdIanoRDJz32RrNyLXwA"
++        }
++      ],
++      "services": {
++        "appinvite_service": {
++          "other_platform_oauth_client": [
++            {
++              "client_id": "1068612922494-b3910ou6ng397gsbio77m16o0t1uj996.apps.googleusercontent.com",
++              "client_type": 3
++            }
++          ]
++        }
++      },
++      "admob_app_id": "ca-app-pub-5955711392214204~4867983729"
++    },
++    {
++      "client_info": {
++        "mobilesdk_app_id": "1:1068612922494:android:bd3146981d66d118",
++        "android_client_info": {
++          "package_name": "com.kcirque.weatherreport"
++        }
++      },
++      "oauth_client": [
++        {
++          "client_id": "1068612922494-b3910ou6ng397gsbio77m16o0t1uj996.apps.googleusercontent.com",
++          "client_type": 3
++        }
++      ],
++      "api_key": [
++        {
++          "current_key": "AIzaSyD9qej_OXbcTsZwdIanoRDJz32RrNyLXwA"
++        }
++      ],
++      "services": {
++        "appinvite_service": {
++          "other_platform_oauth_client": [
++            {
++              "client_id": "1068612922494-b3910ou6ng397gsbio77m16o0t1uj996.apps.googleusercontent.com",
++              "client_type": 3
++            }
++          ]
++        }
++      },
++      "admob_app_id": "ca-app-pub-5955711392214204~3803627142"
++    },
++    {
++      "client_info": {
++        "mobilesdk_app_id": "1:1068612922494:android:e945059ff2f363d2",
++        "android_client_info": {
++          "package_name": "com.kcirqueapps.flashlight"
++        }
++      },
++      "oauth_client": [
++        {
++          "client_id": "1068612922494-b3910ou6ng397gsbio77m16o0t1uj996.apps.googleusercontent.com",
++          "client_type": 3
++        }
++      ],
++      "api_key": [
++        {
++          "current_key": "AIzaSyD9qej_OXbcTsZwdIanoRDJz32RrNyLXwA"
++        }
++      ],
++      "services": {
++        "appinvite_service": {
++          "other_platform_oauth_client": [
++            {
++              "client_id": "1068612922494-b3910ou6ng397gsbio77m16o0t1uj996.apps.googleusercontent.com",
++              "client_type": 3
++            }
++          ]
++        }
++      },
++      "admob_app_id": "ca-app-pub-5955711392214204~7798712477"
++    },
++    {
++      "client_info": {
++        "mobilesdk_app_id": "1:1068612922494:android:7e7a7276095d4371",
++        "android_client_info": {
++          "package_name": "com.kcirqueit.alphabet"
++        }
++      },
++      "oauth_client": [
++        {
++          "client_id": "1068612922494-b3910ou6ng397gsbio77m16o0t1uj996.apps.googleusercontent.com",
++          "client_type": 3
++        }
++      ],
++      "api_key": [
++        {
++          "current_key": "AIzaSyD9qej_OXbcTsZwdIanoRDJz32RrNyLXwA"
++        }
++      ],
++      "services": {
++        "appinvite_service": {
++          "other_platform_oauth_client": [
++            {
++              "client_id": "1068612922494-b3910ou6ng397gsbio77m16o0t1uj996.apps.googleusercontent.com",
++              "client_type": 3
++            }
++          ]
++        }
++      },
++      "admob_app_id": "ca-app-pub-5955711392214204~5086073204"
++    },
++    {
++      "client_info": {
++        "mobilesdk_app_id": "1:1068612922494:android:887f3fcc64c2e5e8",
++        "android_client_info": {
++          "package_name": "com.kcirqueit.alphabetapp"
++        }
++      },
++      "oauth_client": [
++        {
++          "client_id": "1068612922494-b3910ou6ng397gsbio77m16o0t1uj996.apps.googleusercontent.com",
++          "client_type": 3
++        }
++      ],
++      "api_key": [
++        {
++          "current_key": "AIzaSyD9qej_OXbcTsZwdIanoRDJz32RrNyLXwA"
++        }
++      ],
++      "services": {
++        "appinvite_service": {
++          "other_platform_oauth_client": [
++            {
++              "client_id": "1068612922494-b3910ou6ng397gsbio77m16o0t1uj996.apps.googleusercontent.com",
++              "client_type": 3
++            }
++          ]
++        }
++      },
++      "admob_app_id": "ca-app-pub-5955711392214204~3201096145"
++    },
++    {
++      "client_info": {
++        "mobilesdk_app_id": "1:1068612922494:android:28a0bbe94bbf8b7a",
++        "android_client_info": {
++          "package_name": "com.kcirqueit.countryinformation"
++        }
++      },
++      "oauth_client": [
++        {
++          "client_id": "1068612922494-b3910ou6ng397gsbio77m16o0t1uj996.apps.googleusercontent.com",
++          "client_type": 3
++        }
++      ],
++      "api_key": [
++        {
++          "current_key": "AIzaSyD9qej_OXbcTsZwdIanoRDJz32RrNyLXwA"
++        }
++      ],
++      "services": {
++        "appinvite_service": {
++          "other_platform_oauth_client": [
++            {
++              "client_id": "1068612922494-b3910ou6ng397gsbio77m16o0t1uj996.apps.googleusercontent.com",
++              "client_type": 3
++            }
++          ]
++        }
++      },
++      "admob_app_id": "ca-app-pub-5955711392214204~7163890877"
++    },
++    {
++      "client_info": {
++        "mobilesdk_app_id": "1:1068612922494:android:cba14602dd980f4d",
++        "android_client_info": {
++          "package_name": "com.kcirqueit.cricketplayerinfo"
++        }
++      },
++      "oauth_client": [
++        {
++          "client_id": "1068612922494-b3910ou6ng397gsbio77m16o0t1uj996.apps.googleusercontent.com",
++          "client_type": 3
++        }
++      ],
++      "api_key": [
++        {
++          "current_key": "AIzaSyD9qej_OXbcTsZwdIanoRDJz32RrNyLXwA"
++        }
++      ],
++      "services": {
++        "appinvite_service": {
++          "other_platform_oauth_client": [
++            {
++              "client_id": "1068612922494-b3910ou6ng397gsbio77m16o0t1uj996.apps.googleusercontent.com",
++              "client_type": 3
++            }
++          ]
++        }
++      },
++      "admob_app_id": "ca-app-pub-5955711392214204~9942845883"
++    },
++    {
++      "client_info": {
++        "mobilesdk_app_id": "1:1068612922494:android:c1308d7ac33f29fa",
++        "android_client_info": {
++          "package_name": "com.kcirqueit.footbalplayerinfo"
++        }
++      },
++      "oauth_client": [
++        {
++          "client_id": "1068612922494-b3910ou6ng397gsbio77m16o0t1uj996.apps.googleusercontent.com",
++          "client_type": 3
++        }
++      ],
++      "api_key": [
++        {
++          "current_key": "AIzaSyD9qej_OXbcTsZwdIanoRDJz32RrNyLXwA"
++        }
++      ],
++      "services": {
++        "appinvite_service": {
++          "other_platform_oauth_client": [
++            {
++              "client_id": "1068612922494-b3910ou6ng397gsbio77m16o0t1uj996.apps.googleusercontent.com",
++              "client_type": 3
++            }
++          ]
++        }
++      },
++      "admob_app_id": "ca-app-pub-5955711392214204~2707708913"
++    },
++    {
++      "client_info": {
++        "mobilesdk_app_id": "1:1068612922494:android:34d061cb4e70f426",
++        "android_client_info": {
++          "package_name": "com.kcirqueit.newspapers"
++        }
++      },
++      "oauth_client": [
++        {
++          "client_id": "1068612922494-b3910ou6ng397gsbio77m16o0t1uj996.apps.googleusercontent.com",
++          "client_type": 3
++        }
++      ],
++      "api_key": [
++        {
++          "current_key": "AIzaSyD9qej_OXbcTsZwdIanoRDJz32RrNyLXwA"
++        }
++      ],
++      "services": {
++        "appinvite_service": {
++          "other_platform_oauth_client": [
++            {
++              "client_id": "1068612922494-b3910ou6ng397gsbio77m16o0t1uj996.apps.googleusercontent.com",
++              "client_type": 3
++            }
++          ]
++        }
++      }
++    },
++    {
++      "client_info": {
++        "mobilesdk_app_id": "1:1068612922494:android:b82a1e9b5b64c9e5",
++        "android_client_info": {
++          "package_name": "com.kcirqueit.novel"
++        }
++      },
++      "oauth_client": [
++        {
++          "client_id": "1068612922494-b3910ou6ng397gsbio77m16o0t1uj996.apps.googleusercontent.com",
++          "client_type": 3
++        }
++      ],
++      "api_key": [
++        {
++          "current_key": "AIzaSyD9qej_OXbcTsZwdIanoRDJz32RrNyLXwA"
++        }
++      ],
++      "services": {
++        "appinvite_service": {
++          "other_platform_oauth_client": [
++            {
++              "client_id": "1068612922494-b3910ou6ng397gsbio77m16o0t1uj996.apps.googleusercontent.com",
++              "client_type": 3
++            }
++          ]
++        }
++      },
++      "admob_app_id": "ca-app-pub-5955711392214204~8644493505"
++    },
++    {
++      "client_info": {
++        "mobilesdk_app_id": "1:1068612922494:android:b36cabdc58ee4c27",
++        "android_client_info": {
++          "package_name": "com.kcirqueit.nurseryrhymes"
++        }
++      },
++      "oauth_client": [
++        {
++          "client_id": "1068612922494-b3910ou6ng397gsbio77m16o0t1uj996.apps.googleusercontent.com",
++          "client_type": 3
++        }
++      ],
++      "api_key": [
++        {
++          "current_key": "AIzaSyD9qej_OXbcTsZwdIanoRDJz32RrNyLXwA"
++        }
++      ],
++      "services": {
++        "appinvite_service": {
++          "other_platform_oauth_client": [
++            {
++              "client_id": "1068612922494-b3910ou6ng397gsbio77m16o0t1uj996.apps.googleusercontent.com",
++              "client_type": 3
++            }
++          ]
++        }
++      },
++      "admob_app_id": "ca-app-pub-5955711392214204~2068101584"
++    },
++    {
++      "client_info": {
++        "mobilesdk_app_id": "1:1068612922494:android:88c0fd466e26c36a",
++        "android_client_info": {
++          "package_name": "com.kcirqueit.socialmediaapps"
++        }
++      },
++      "oauth_client": [
++        {
++          "client_id": "1068612922494-b3910ou6ng397gsbio77m16o0t1uj996.apps.googleusercontent.com",
++          "client_type": 3
++        }
++      ],
++      "api_key": [
++        {
++          "current_key": "AIzaSyD9qej_OXbcTsZwdIanoRDJz32RrNyLXwA"
++        }
++      ],
++      "services": {
++        "appinvite_service": {
++          "other_platform_oauth_client": [
++            {
++              "client_id": "1068612922494-b3910ou6ng397gsbio77m16o0t1uj996.apps.googleusercontent.com",
++              "client_type": 3
++            }
++          ]
++        }
++      },
++      "admob_app_id": "ca-app-pub-5955711392214204~5865807993"
++    },
++    {
++      "client_info": {
++        "mobilesdk_app_id": "1:1068612922494:android:fc020de70418926e",
++        "android_client_info": {
++          "package_name": "com.kcirqueit.wordbook"
++        }
++      },
++      "oauth_client": [
++        {
++          "client_id": "1068612922494-b3910ou6ng397gsbio77m16o0t1uj996.apps.googleusercontent.com",
++          "client_type": 3
++        }
++      ],
++      "api_key": [
++        {
++          "current_key": "AIzaSyD9qej_OXbcTsZwdIanoRDJz32RrNyLXwA"
++        }
++      ],
++      "services": {
++        "appinvite_service": {
++          "other_platform_oauth_client": [
++            {
++              "client_id": "1068612922494-b3910ou6ng397gsbio77m16o0t1uj996.apps.googleusercontent.com",
++              "client_type": 3
++            }
++          ]
++        }
++      },
++      "admob_app_id": "ca-app-pub-5955711392214204~6970387559"
++    }
++  ],
++  "configuration_version": "1"
++}
+\ No newline at end of file
+Index: app/src/main/res/layout-land/activity_add_note.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout-land/activity_add_note.xml b/app/src/main/res/layout-land/activity_add_note.xml
+new file mode 100644
+--- /dev/null	(date 1554798440000)
++++ b/app/src/main/res/layout-land/activity_add_note.xml	(date 1554798440000)
+@@ -0,0 +1,64 @@
++<?xml version="1.0" encoding="utf-8"?>
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:background="@color/colorBackgroundAddNote"
++    android:orientation="vertical"
++    tools:context=".activity.AddNoteActivity">
++
++    <LinearLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:orientation="horizontal">
++
++        <TextView
++            android:id="@+id/time_spend_text_view"
++            android:layout_width="0dp"
++            android:layout_height="wrap_content"
++            android:layout_weight="1"
++            android:padding="5dp"
++            android:text="@string/editing_note_text"
++            android:textSize="18sp" />
++
++        <TextView
++            android:id="@+id/date_text_view"
++            android:layout_width="0dp"
++            android:layout_height="wrap_content"
++            android:layout_weight="1"
++            android:gravity="end"
++            android:padding="5dp"
++            android:textSize="18sp"
++            tools:text="@string/sample_date" />
++    </LinearLayout>
++
++    <EditText
++        android:id="@+id/note_title_edit_text"
++        android:layout_width="match_parent"
++        android:layout_height="40sp"
++        android:layout_margin="3dp"
++        android:background="@drawable/rounded_border_edit_text"
++        android:gravity="start"
++        android:hint="@string/note_title"
++        android:inputType="text"
++        android:padding="5dp"
++        android:textSize="22sp" />
++
++    <EditText
++        android:id="@+id/note_edit_text"
++        android:layout_width="match_parent"
++        android:layout_height="match_parent"
++        android:layout_margin="3dp"
++        android:layout_marginTop="5dp"
++        android:autofillHints="@string/editing_note_text"
++        android:background="@drawable/rounded_border_edit_text"
++        android:clickable="true"
++        android:focusable="true"
++        android:gravity="start"
++        android:hint="@string/type_notes_here"
++        android:inputType="textMultiLine"
++        android:padding="5dp"
++        android:textAlignment="viewStart"
++        android:textSize="20sp" />
++</LinearLayout>
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1548931634000)
++++ b/.idea/vcs.xml	(date 1548931634000)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: app/src/main/res/drawable/rounded_border_edit_text.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/rounded_border_edit_text.xml b/app/src/main/res/drawable/rounded_border_edit_text.xml
+new file mode 100644
+--- /dev/null	(date 1652283698729)
++++ b/app/src/main/res/drawable/rounded_border_edit_text.xml	(date 1652283698729)
+@@ -0,0 +1,10 @@
++<?xml version="1.0" encoding="utf-8"?>
++<selector xmlns:android="http://schemas.android.com/apk/res/android">
++    <item>
++        <shape android:shape="rectangle">
++            <solid android:color="@android:color/transparent" />
++            <corners android:radius="2dp" />
++            <stroke android:width="2dp" android:color="@android:color/transparent" />
++        </shape>
++    </item>
++</selector>
+\ No newline at end of file
+Index: app/src/main/res/drawable/random_color.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/random_color.xml b/app/src/main/res/drawable/random_color.xml
+new file mode 100644
+--- /dev/null	(date 1554797366000)
++++ b/app/src/main/res/drawable/random_color.xml	(date 1554797366000)
+@@ -0,0 +1,13 @@
++<?xml version="1.0" encoding="utf-8"?>
++<shape xmlns:android="http://schemas.android.com/apk/res/android"
++    android:shape="oval">
++
++    <solid
++        android:color="#808080"
++        />
++
++    <size
++        android:height="120dp"
++        android:width="120dp"
++        />
++</shape>
+\ No newline at end of file
+Index: .idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"GradleSettings\">\n    <option name=\"linkedExternalProjectsSettings\">\n      <GradleProjectSettings>\n        <option name=\"distributionType\" value=\"DEFAULT_WRAPPED\" />\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\n        <option name=\"modules\">\n          <set>\n            <option value=\"$PROJECT_DIR$\" />\n            <option value=\"$PROJECT_DIR$/app\" />\n          </set>\n        </option>\n        <option name=\"resolveModulePerSourceSet\" value=\"false\" />\n      </GradleProjectSettings>\n    </option>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/gradle.xml b/.idea/gradle.xml
+--- a/.idea/gradle.xml	(revision 61dc1546f0081bf150173f1093c429ea908c399c)
++++ b/.idea/gradle.xml	(date 1652282642436)
+@@ -1,10 +1,13 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="GradleMigrationSettings" migrationVersion="1" />
+   <component name="GradleSettings">
+     <option name="linkedExternalProjectsSettings">
+       <GradleProjectSettings>
++        <option name="testRunner" value="GRADLE" />
+         <option name="distributionType" value="DEFAULT_WRAPPED" />
+         <option name="externalProjectPath" value="$PROJECT_DIR$" />
++        <option name="gradleJvm" value="11" />
+         <option name="modules">
+           <set>
+             <option value="$PROJECT_DIR$" />
+Index: app/src/main/res/drawable/radiant.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/radiant.xml b/app/src/main/res/drawable/radiant.xml
+new file mode 100644
+--- /dev/null	(date 1556110306000)
++++ b/app/src/main/res/drawable/radiant.xml	(date 1556110306000)
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="utf-8"?>
++<shape xmlns:android="http://schemas.android.com/apk/res/android">
++    <gradient
++        android:angle="90"
++        android:centerColor="#006EA2"
++        android:endColor="#0081BE"
++        android:startColor="#1A3653" />
++
++</shape>
+\ No newline at end of file
+Index: .idea/assetWizardSettings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"WizardSettings\">\n    <option name=\"children\">\n      <map>\n        <entry key=\"imageWizard\">\n          <value>\n            <PersistentState>\n              <option name=\"children\">\n                <map>\n                  <entry key=\"imageAssetPanel\">\n                    <value>\n                      <PersistentState>\n                        <option name=\"children\">\n                          <map>\n                            <entry key=\"actionbar\">\n                              <value>\n                                <PersistentState>\n                                  <option name=\"children\">\n                                    <map>\n                                      <entry key=\"clipartAsset\">\n                                        <value>\n                                          <PersistentState>\n                                            <option name=\"values\">\n                                              <map>\n                                                <entry key=\"url\" value=\"jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/social/ic_share_black_24dp.xml\" />\n                                              </map>\n                                            </option>\n                                          </PersistentState>\n                                        </value>\n                                      </entry>\n                                    </map>\n                                  </option>\n                                  <option name=\"values\">\n                                    <map>\n                                      <entry key=\"assetType\" value=\"IMAGE\" />\n                                      <entry key=\"imageAsset\" value=\"C:\\Users\\K-06\\Downloads\\fb2ec53c17a3a96651244839dabd6ec8.png\" />\n                                      <entry key=\"outputName\" value=\"ic_more_apps_black\" />\n                                    </map>\n                                  </option>\n                                </PersistentState>\n                              </value>\n                            </entry>\n                          </map>\n                        </option>\n                        <option name=\"values\">\n                          <map>\n                            <entry key=\"outputIconType\" value=\"ACTIONBAR\" />\n                          </map>\n                        </option>\n                      </PersistentState>\n                    </value>\n                  </entry>\n                </map>\n              </option>\n            </PersistentState>\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/assetWizardSettings.xml b/.idea/assetWizardSettings.xml
+--- a/.idea/assetWizardSettings.xml	(revision 61dc1546f0081bf150173f1093c429ea908c399c)
++++ b/.idea/assetWizardSettings.xml	(date 1556110402000)
+@@ -18,12 +18,51 @@
+                                 <PersistentState>
+                                   <option name="children">
+                                     <map>
+-                                      <entry key="clipartAsset">
++                                      <entry key="clipArt">
++                                        <value>
++                                          <PersistentState>
++                                            <option name="values">
++                                              <map>
++                                                <entry key="color" value="000000" />
++                                              </map>
++                                            </option>
++                                          </PersistentState>
++                                        </value>
++                                      </entry>
++                                    </map>
++                                  </option>
++                                  <option name="values">
++                                    <map>
++                                      <entry key="theme" value="HOLO_DARK" />
++                                      <entry key="themeColor" value="ffffff" />
++                                    </map>
++                                  </option>
++                                </PersistentState>
++                              </value>
++                            </entry>
++                            <entry key="launcher">
++                              <value>
++                                <PersistentState>
++                                  <option name="children">
++                                    <map>
++                                      <entry key="foregroundClipArt">
++                                        <value>
++                                          <PersistentState>
++                                            <option name="values">
++                                              <map>
++                                                <entry key="color" value="000000" />
++                                              </map>
++                                            </option>
++                                          </PersistentState>
++                                        </value>
++                                      </entry>
++                                      <entry key="foregroundImage">
+                                         <value>
+                                           <PersistentState>
+                                             <option name="values">
+                                               <map>
+-                                                <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/social/ic_share_black_24dp.xml" />
++                                                <entry key="color" value="000000" />
++                                                <entry key="scalingPercent" value="72" />
+                                               </map>
+                                             </option>
+                                           </PersistentState>
+@@ -33,19 +72,56 @@
+                                   </option>
+                                   <option name="values">
+                                     <map>
+-                                      <entry key="assetType" value="IMAGE" />
+-                                      <entry key="imageAsset" value="C:\Users\K-06\Downloads\fb2ec53c17a3a96651244839dabd6ec8.png" />
+-                                      <entry key="outputName" value="ic_more_apps_black" />
++                                      <entry key="backgroundAssetType" value="COLOR" />
++                                      <entry key="backgroundColor" value="0081be" />
++                                      <entry key="foregroundImage" value="D:\Md Mainuddin\App Icon\One Note\Icon\note.png" />
+                                     </map>
+                                   </option>
+                                 </PersistentState>
+                               </value>
+                             </entry>
+-                          </map>
+-                        </option>
+-                        <option name="values">
+-                          <map>
+-                            <entry key="outputIconType" value="ACTIONBAR" />
++                            <entry key="launcherLegacy">
++                              <value>
++                                <PersistentState>
++                                  <option name="children">
++                                    <map>
++                                      <entry key="clipArt">
++                                        <value>
++                                          <PersistentState>
++                                            <option name="values">
++                                              <map>
++                                                <entry key="color" value="000000" />
++                                              </map>
++                                            </option>
++                                          </PersistentState>
++                                        </value>
++                                      </entry>
++                                    </map>
++                                  </option>
++                                </PersistentState>
++                              </value>
++                            </entry>
++                            <entry key="notification">
++                              <value>
++                                <PersistentState>
++                                  <option name="children">
++                                    <map>
++                                      <entry key="clipArt">
++                                        <value>
++                                          <PersistentState>
++                                            <option name="values">
++                                              <map>
++                                                <entry key="color" value="000000" />
++                                              </map>
++                                            </option>
++                                          </PersistentState>
++                                        </value>
++                                      </entry>
++                                    </map>
++                                  </option>
++                                </PersistentState>
++                              </value>
++                            </entry>
+                           </map>
+                         </option>
+                       </PersistentState>
