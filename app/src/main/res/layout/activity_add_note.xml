@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorBackgroundAddNote"
     android:orientation="vertical"
-    tools:context=".AddNoteActivity">
+    tools:context=".activity.AddNoteActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,6 +17,7 @@
             android:id="@+id/time_spend_text_view"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+
             android:layout_weight="1"
             android:padding="5dp"
             android:text="@string/editing_note_text"
@@ -34,16 +35,31 @@
     </LinearLayout>
 
     <EditText
+        android:id="@+id/note_title_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="40sp"
+        android:layout_margin="3dp"
+        android:background="@drawable/rounded_border_edit_text"
+        android:gravity="start"
+        android:hint="@string/note_title"
+        android:inputType="textCapSentences"
+        android:padding="5dp"
+        android:textSize="20sp" />
+
+    <EditText
         android:id="@+id/note_edit_text"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="3dp"
         android:layout_marginTop="5dp"
         android:autofillHints="@string/editing_note_text"
-        android:background="@android:color/transparent"
+        android:background="@drawable/rounded_border_edit_text"
         android:clickable="true"
         android:focusable="true"
         android:gravity="start"
-        android:inputType="textMultiLine"
+        android:hint="@string/type_notes_here"
+        android:inputType="textMultiLine|textCapSentences"
+        android:padding="5dp"
         android:textAlignment="viewStart"
         android:textSize="18sp" />
 </LinearLayout>

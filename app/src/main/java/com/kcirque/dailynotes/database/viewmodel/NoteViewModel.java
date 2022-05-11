@@ -1,8 +1,8 @@
 package com.kcirque.dailynotes.database.viewmodel;
 
 import android.app.Application;
-import android.arch.lifecycle.AndroidViewModel;
-import android.support.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
+import androidx.annotation.NonNull;
 
 import com.kcirque.dailynotes.database.model.Note;
 import com.kcirque.dailynotes.database.repository.NoteRepository;

@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.kcirque.dailynotes">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.SEND_SMS" />
 
     <application
@@ -12,8 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
-            android:screenOrientation="portrait">
+            android:name=".activity.MainActivity"
+            android:theme="@style/AppTheme.Launcher"
+            android:screenOrientation="portrait"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,14 +24,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AddNoteActivity"
+            android:name=".activity.AddNoteActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".SettingsActivity"
+            android:name=".activity.SettingsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ChangePinActivity"
+            android:name=".activity.ChangePinActivity"
             android:screenOrientation="portrait" />
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/admob_app_id" />
     </application>
 
 </manifest>

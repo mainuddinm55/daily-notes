@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Daily Notes</string>
+    <string name="app_name">One Note</string>
     <string name="notes_title_text">Notes Title</string>
     <string name="note_time_demo">3:30 PM</string>
     <string name="sample_date">17 Nov, 2018 10:35 AM</string>
@@ -43,4 +43,17 @@
     <string name="share_text">Share</string>
     <string name="like_text">Like apps</string>
     <string name="more_apps">More apps</string>
+
+    <string name="admob_app_id">ca-app-pub-5955711392214204~7905543740</string>
+    <string name="banner_unit_id">ca-app-pub-5955711392214204/3477190057</string>
+    <string name="interstitial_unit_id">ca-app-pub-5955711392214204/7330828673</string>
+    <string name="interstitial_video_unit_id">ca-app-pub-3940256099942544/8691691433</string>
+    <string name="reward_video_unit_id">ca-app-pub-5955711392214204/3588870691</string>
+    <string name="native_advanced_unit_id">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="native_advanced_video_unit_id">ca-app-pub-3940256099942544/1044960115</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="note_title">Note Title</string>
+    <string name="type_notes_here">Type notes here</string>
+
 </resources>

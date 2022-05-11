@@ -3,7 +3,8 @@ package com.kcirque.dailynotes.adapter;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.MyViewHolder> implements Filterable {
@@ -41,7 +45,8 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.MyViewHolder
                     filteredNotes = allNotes;
                 } else {
                     for (Note note : allNotes) {
-                        if (note.getDescription().toLowerCase().contains(query.toLowerCase())) {
+                        if (note.getDescription().toLowerCase().contains(query.toLowerCase()) ||
+                                note.getTitle().toLowerCase().contains(query.toLowerCase())) {
                             tempList.add(note);
                         }
                     }
@@ -62,14 +67,15 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.MyViewHolder
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView note;
-        TextView dot;
+        TextView note, title;
+        CircleImageView dot;
         TextView timestamp;
         ImageView isLockImageView;
 
         public MyViewHolder(View view) {
             super(view);
-            note = view.findViewById(R.id.note_title_text_view);
+            note = view.findViewById(R.id.note_text_view);
+            title = view.findViewById(R.id.note_title_text_view);
             dot = view.findViewById(R.id.divider);
             timestamp = view.findViewById(R.id.note_create_time_text_view);
             isLockImageView = view.findViewById(R.id.lock_image_view);
@@ -89,8 +95,9 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.MyViewHolder
         notifyDataSetChanged();
     }
 
+    @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView;
         if (type == LIST_VIEW) {
             itemView = LayoutInflater.from(parent.getContext())
@@ -103,17 +110,16 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.MyViewHolder
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Note note = filteredNotes.get(position);
-        if (type == LIST_VIEW) {
-            holder.note.setText(note.getTitle());
-        } else {
-            holder.note.setText(note.getDescription());
-        }
+
+        holder.title.setText(note.getTitle());
+        holder.note.setText(note.getDescription());
         holder.itemView.setBackgroundColor(getRandomMaterialColor("400"));
         // Changing dot color to random color
-        holder.dot.setBackgroundColor(getRandomMaterialColor("500"));
-
+       // holder.dot.setBackgroundColor(getRandomMaterialColor("500"));
+        //Glide.with(context).load(null).into(holder.dot);
+        holder.dot.setColorFilter(getRandomMaterialColor("500"));
         // Formatting and displaying timestamp
         holder.timestamp.setText(formatDate(note.getDataTime()));
         if (note.isLock()) {
@@ -149,9 +155,9 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.MyViewHolder
      * Input: 2018-02-21 00:15:42
      * Output: Feb 21
      */
-    private String formatDate(long timstamp) {
-        Date date = new Date(timstamp);
-        SimpleDateFormat fmtOut = new SimpleDateFormat("MMM dd");
+    private String formatDate(long timestamp) {
+        Date date = new Date(timestamp);
+        SimpleDateFormat fmtOut = new SimpleDateFormat("MMM dd", Locale.US);
         return fmtOut.format(date);
     }
 }
