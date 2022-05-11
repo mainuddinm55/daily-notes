@@ -10,7 +10,7 @@ import com.kcirque.dailynotes.database.model.Note;
 
 import static com.kcirque.dailynotes.database.NoteDatabase.DATABASE_VERSION;
 
-@Database(entities = {Note.class}, version = DATABASE_VERSION)
+@Database(entities = {Note.class}, version = DATABASE_VERSION,exportSchema = false)
 public abstract class NoteDatabase extends RoomDatabase {
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "note_database";

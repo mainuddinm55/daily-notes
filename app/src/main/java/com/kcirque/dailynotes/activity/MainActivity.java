@@ -22,14 +22,6 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.reward.RewardItem;
-import com.google.android.gms.ads.reward.RewardedVideoAd;
-import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionDeniedResponse;
@@ -56,7 +48,7 @@ import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 
-public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, RewardedVideoAdListener {
+public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
     private final CompositeDisposable compositeDisposable = new CompositeDisposable();
     private NoteViewModel noteViewModel;
     private static final String TAG = "MainActivity";
@@ -69,8 +61,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     private static final int GRID_VIEW = 2;
     private RecyclerView noteListRecyclerView;
     private SharedPref sharedPref;
-    private InterstitialAd mInterstitialAd;
-    private RewardedVideoAd mRewardedVideoAd;
     int count = 0;
 
     @Override
@@ -78,20 +68,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         super.onCreate(savedInstanceState);
         setTheme(R.style.AppTheme);
         setContentView(R.layout.activity_main);
-
-        MobileAds.initialize(this,
-                getString(R.string.admob_app_id));
-
-        AdView adView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        adView.loadAd(adRequest);
-        mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId(getString(R.string.interstitial_unit_id));
-        mInterstitialAd.loadAd(new AdRequest.Builder().build());
-
-        mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
-        mRewardedVideoAd.setRewardedVideoAdListener(this);
-        loadRewardedVideoAd();
 
         noteViewModel = ViewModelProviders.of(this).get(NoteViewModel.class);
         Dexter.withActivity(this)
@@ -122,18 +98,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         addNoteFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                count++;
-                if (count % 3 == 0) {
-                    if (mRewardedVideoAd.isLoaded()) {
-                        mRewardedVideoAd.show();
-                    } else {
-                        Intent addNoteIntent = new Intent(getApplicationContext(), AddNoteActivity.class);
-                        startActivity(addNoteIntent);
-                    }
-                } else {
-                    Intent addNoteIntent = new Intent(getApplicationContext(), AddNoteActivity.class);
-                    startActivity(addNoteIntent);
-                }
+                Intent addNoteIntent = new Intent(getApplicationContext(), AddNoteActivity.class);
+                startActivity(addNoteIntent);
             }
         });
         sharedPref = new SharedPref(this);
@@ -147,22 +113,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         noteListRecyclerView.addOnItemTouchListener(new RecyclerTouchListener(this, noteListRecyclerView, new RecyclerTouchListener.ClickListener() {
             @Override
             public void onClick(View view, final int position) {
-                mInterstitialAd.setAdListener(new AdListener() {
-                    @Override
-                    public void onAdClosed() {
-                        mInterstitialAd.loadAd(new AdRequest.Builder().build());
-                        Intent updateNote = new Intent(MainActivity.this, AddNoteActivity.class);
-                        updateNote.putExtra(AddNoteActivity.EXTRA_NOTE, allNotes.get(position));
-                        startActivity(updateNote);
-                    }
-                });
-                if (mInterstitialAd.isLoaded()) {
-                    mInterstitialAd.show();
-                } else {
-                    Intent updateNote = new Intent(MainActivity.this, AddNoteActivity.class);
-                    updateNote.putExtra(AddNoteActivity.EXTRA_NOTE, allNotes.get(position));
-                    startActivity(updateNote);
-                }
+                Intent updateNote = new Intent(MainActivity.this, AddNoteActivity.class);
+                updateNote.putExtra(AddNoteActivity.EXTRA_NOTE, allNotes.get(position));
+                startActivity(updateNote);
             }
 
             @Override
@@ -404,52 +357,5 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         shareIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
         shareIntent.putExtra(Intent.EXTRA_TEXT, body);
         startActivity(Intent.createChooser(shareIntent, "Share with"));
-    }
-
-    private void loadRewardedVideoAd() {
-        mRewardedVideoAd.loadAd(getString(R.string.reward_video_unit_id),
-                new AdRequest.Builder().build());
-    }
-
-    @Override
-    public void onRewardedVideoAdLoaded() {
-
-    }
-
-    @Override
-    public void onRewardedVideoAdOpened() {
-
-    }
-
-    @Override
-    public void onRewardedVideoStarted() {
-
-    }
-
-    @Override
-    public void onRewardedVideoAdClosed() {
-        loadRewardedVideoAd();
-        Intent addNoteIntent = new Intent(getApplicationContext(), AddNoteActivity.class);
-        startActivity(addNoteIntent);
-    }
-
-    @Override
-    public void onRewarded(RewardItem rewardItem) {
-
-    }
-
-    @Override
-    public void onRewardedVideoAdLeftApplication() {
-
-    }
-
-    @Override
-    public void onRewardedVideoAdFailedToLoad(int i) {
-
-    }
-
-    @Override
-    public void onRewardedVideoCompleted() {
-
     }
 }
